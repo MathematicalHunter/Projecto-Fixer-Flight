@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixerFlight</title>
+    <title>Destinos</title>
     <link rel="stylesheet" href="css/destino.css">
 </head>
 
 <body>
-   <header class="contenedor"> 
+<header class="contenedor"> 
         
         <a href="#" class="logo-link">
             <div class="logo">
@@ -28,8 +29,8 @@
         
         
         <ul class="nav-menu">
-            <li><a href="index.html" data-page="inicio">Inicio</a></li>
-            <li><a href="destinos.html" data-page="destinos" class="active" >Destinos</a></li>
+            <li><a href="index.html" data-page="inicio" class="active">Inicio</a></li>
+            <li><a href="destinos.html" data-page="destinos">Destinos</a></li>
             <li><a href="planificador.html" data-page="planificador">Planificador</a></li>
             <li><a href="guardados.html" data-page="guardados">Guardados</a></li>
         </ul>
@@ -41,56 +42,200 @@
         </div>
       
    </header>
- <main> 
-    <h1> monda</h1>
+    <main class="destinos">
 
- </main>
+        <h1>Descubri el mundo</h1>
 
- <footer class="footer">
-    <div class="footer-contenido">
+        <div class="contenedor-destinos">
 
-        <div class="footer-col">
-            <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Comparador de vuelos. Encuentra los mejores precios a tu destino ideal.</p>
+            <!-- TOKIO -->
+
+            <div class="tarjeta">
+
+                <img src="img/tokio.jpg" alt="Tokio">
+
+                <div class="contenido">
+
+                    <h2>Tokio</h2>
+
+                    <p>Japon · Asia</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Tokio',
+                    'Japon',
+                    'Asia',
+                    '14h 30m',
+                    '22°C',
+                    'Mar - May'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- PARIS -->
+
+            <div class="tarjeta">
+
+                <img src="img/paris.jpg" alt="Paris">
+
+                <div class="contenido">
+
+                    <h2>Paris</h2>
+
+                    <p>Francia · Europa</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Paris',
+                    'Francia',
+                    'Europa',
+                    '11h 15m',
+                    '18°C',
+                    'Abr - Jun'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- DUBAI -->
+
+            <div class="tarjeta">
+
+                <img src="img/dubai.jpg" alt="Dubai">
+
+                <div class="contenido">
+
+                    <h2>Dubai</h2>
+
+                    <p>Emiratos Arabes Unidos</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Dubai',
+                    'EAU',
+                    'Medio Oriente',
+                    '14h 05m',
+                    '35°C',
+                    'Nov - Mar'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bali -->
+
+
+            <div class="tarjeta">
+
+                <img src="img/Bali.jpg" alt="Bali">
+
+                <div class="contenido">
+
+                    <h2>Bali</h2>
+
+                    <p>Indonesia · Asia</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Bali',
+                    'Indonesia',
+                    'Asia',
+                    '19h 30m',
+                    '29°C',
+                    'May - Sep'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Londres -->
+
+
+         <div class="tarjeta">
+
+                <img src="img/Londres.jpg" alt="Londres">
+
+                <div class="contenido">
+
+                    <h2>Londres</h2>
+
+                    <p>Reino Unido · Europa</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Londres',
+                    'Reino Unido',
+                    'Europa',
+                    '12h 20m',
+                    '16°C',
+                    'Jun - Ago'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+         <!-- Londres -->
+
+         <div class="tarjeta">
+
+                <img src="img/Dubai.jpg" alt="Dubai">
+
+                <div class="contenido">
+
+                    <h2>Dubai</h2>
+
+                    <p>Emiratos Arabes Unidos</p>
+
+                    <button onclick="seleccionarDestino(
+                    'Dubai',
+                    'Emiratos Arabes Unidos',
+                    'Medio Oriente',
+                    '14h 05m',
+                    '35°C',
+                    'Nov - Mar'
+                    )">
+
+                        Seleccionar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
         </div>
 
-        <div class="footer-col">
-            <h4>Contacto</h4>
-            <ul>
-                <li>📧 <a href="mailto:contacto@fixerflight.com">jenogueral25@ul.edu.co</a></li>
-                <li>📞 <a href="tel:+573001234567">+57 300 123 4567</a></li>
-                <li>📍 Barranquilla, Colombia</li>
-                <li>🕐 Lun - Vie: 8:00 a.m. - 6:00 p.m.</li>
-            </ul>
-        </div>
+    </main>
 
-        <div class="footer-col">
-            <h4>Enlaces</h4>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="destinos.html">Destinos</a></li>
-                <li><a href="planificador.html">Planificador</a></li>
-                <li><a href="guardados.html">Guardados</a></li>
-            </ul>
-        </div>
+    <script src="js/destinos.js"></script>
 
-        <div class="footer-col">
-            <h4>Síguenos</h4>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">X (Twitter)</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="footer-copy">
-        <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
-    </div>
-</footer>
-   
-
- 
 </body>
+
 </html>
