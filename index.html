@@ -1,22 +1,32 @@
+<!-- Indica al navegador que este archivo usa HTML5, la versión actual de HTML. -->
 <!DOCTYPE html>
+<!-- La etiqueta html contiene toda la página; lang="es" informa que está en español. -->
 <html lang="es">
 <head>
+    <!-- Permite mostrar correctamente letras especiales como las tildes y la ñ. -->
     <meta charset="UTF-8">
+    <!-- Hace que el diseño se adapte al ancho de celulares y otros dispositivos. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Este texto aparece en la pestaña del navegador. -->
     <title>FixerFlight</title>
+    <!-- Conecta esta página con la hoja de estilos que controla sus colores y apariencia. -->
     <link rel="stylesheet" href="css/stlyles.css">
 </head>
 
 <body>
+   <!-- Encabezado compartido: contiene el logo, la navegación y los enlaces de cuenta. -->
    <header class="contenedor"> 
         
-        <a href="" class="logo-link">
+        <!-- Al hacer clic en el logo, el enlace lleva a la página de inicio. -->
+        <a href="index.html" class="logo-link">
             <div class="logo">
                 <div class="icon-circle">
+                    <!-- Este SVG dibuja el avión directamente; no es una imagen ni JavaScript. -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="avion-icon">
                         <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
                     </svg>
                 </div>
+                <!-- El nombre del sitio se separa en dos partes para poder darles estilos distintos. -->
                 <div class="text-container">
                     <h1 class="main-title">
                         <span class="text-white">Fixer</span><span class="text-cyan">Flight</span>
@@ -27,38 +37,46 @@
         </a>
         
         
+        <!-- Lista de enlaces para cambiar entre las páginas del proyecto. -->
         <ul class="nav-menu">
-            <li><a href="index.html" data-page="inicio" class="active">Inicio</a></li>
-            <li><a href="destinos.html" data-page="destinos">Destinos</a></li>
-            <li><a href="planificador.html" data-page="planificador">Planificador</a></li>
-            <li><a href="guardados.html" data-page="guardados">Guardados</a></li>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="destinos.html">Destinos</a></li>
+            <li><a href="planificador.html">Planificador</a></li>
+            <li><a href="guardados.html">Guardados</a></li>
         </ul>
 
-        
+        <!-- Accesos a las pantallas visuales de inicio de sesión y creación de cuenta. -->
         <div class="sesion">
             <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <button type="button" class="btn-crear" onclick="window.location.href='crear.html'">Crear Cuenta</button>
+            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
         </div>
       
    </header>
 
-   <!-- Contenido principal -->
+   <!-- main agrupa el contenido principal y diferente de la navegación y el pie de página. -->
   <main>
 
-    <h4>Mas de 1000 destinos</h4>
+    <!-- Etiqueta visible que aclara que esta versión es una demostración visual. -->
+    <h4>PROTOTIPO VISUAL</h4>
     
-    <h1>Tu proximo Viaje, al mejor precio</h1>
-    <p>Comparamos vuelos de 150+ aerolíneas para que vos elijas la mejor opción sin perder tiempo.</p>
+    <h1>Compara opciones para tu próximo viaje</h1>
+    <p>Explora destinos y vuelos de ejemplo. La búsqueda se habilitará en una próxima versión.</p>
     
-    <form class="busqueda-vuelos">
+    <!-- Panel visual de búsqueda. Sus campos se pueden ver, pero no buscan vuelos todavía. -->
+    <div class="busqueda-vuelos">
+        <!-- Agrupa el tipo de viaje y las preferencias generales del pasajero. -->
         <div class="busqueda-opciones">
+            <!-- Los radio buttons permiten seleccionar una sola modalidad de viaje en este prototipo. -->
             <div class="tipo-viaje" role="group" aria-label="Tipo de viaje">
                 <label><input type="radio" name="tipo-viaje" value="ida-vuelta" checked><span>Ida y vuelta</span></label>
                 <label><input type="radio" name="tipo-viaje" value="solo-ida"><span>Solo ida</span></label>
                 <label><input type="radio" name="tipo-viaje" value="multidestino"><span>Multidestino</span></label>
             </div>
+            <!-- Preferencias: un menú de clase y una cantidad de pasajeros de ejemplo. -->
             <div class="preferencias-viaje">
+                <!-- Esta etiqueta ayuda a lectores de pantalla aunque no se vea en el diseño. -->
                 <label class="visualmente-oculto" for="clase-vuelo">Clase</label>
+                <!-- Cada option es una opción que se puede elegir dentro del menú. -->
                 <select id="clase-vuelo" name="clase">
                     <option>Economy</option>
                     <option>Premium Economy</option>
@@ -66,12 +84,15 @@
                     <option>First Class</option>
                 </select>
                 <label class="visualmente-oculto" for="pasajeros">Pasajeros</label>
+                <!-- min y max limitan el número visible; value muestra 1 como valor inicial. -->
                 <input id="pasajeros" name="pasajeros" type="number" min="1" max="9" value="1">
             </div>
         </div>
 
+        <!-- Campos para escribir ciudades y elegir fechas; aún no están conectados a una búsqueda. -->
         <div class="campos-vuelo">
             <div class="campo-vuelo">
+                <!-- for conecta el texto de la etiqueta con el campo que tiene el mismo id. -->
                 <label for="origen">Origen</label>
                 <input id="origen" name="origen" type="text" placeholder="✈  Ciudad o aeropuerto">
             </div>
@@ -88,23 +109,28 @@
                 <input id="fecha-vuelta" name="fecha-vuelta" type="date">
             </div>
         </div>
-        <button class="boton-buscar" type="submit">⌕ Buscar vuelos</button>
-    </form>
+        <!-- disabled desactiva el botón para dejar claro que la búsqueda todavía no funciona. -->
+        <button class="boton-buscar" type="button" disabled>⌕ Búsqueda próximamente</button>
+    </div>
 
+    <!-- Datos escritos directamente en HTML para resumir el contenido de esta maqueta. -->
     <ul class="estadisticas-viaje" aria-label="Datos de FixerFlight">
-        <li><strong>150+</strong><span>Aerolíneas</span></li>
-        <li><strong>500+</strong><span>Destinos</span></li>
-        <li><strong>$0</strong><span>Comisión</span></li>
-        <li><strong>24/7</strong><span>Disponible</span></li>
+        <li><strong>5</strong><span>Destinos</span></li>
+        <li><strong>10</strong><span>Vuelos de ejemplo</span></li>
+        <li><strong>0</strong><span>Acciones activas</span></li>
+        <li><strong>HTML + CSS</strong><span>Esta versión</span></li>
     </ul>
 
+    <!-- section crea un bloque temático; aria-labelledby lo relaciona con su título. -->
     <section class="seccion-destinos" aria-labelledby="titulo-destinos">
         <div class="encabezado-seccion">
             <h2 id="titulo-destinos">Destinos para inspirarte</h2>
             <p>Descubrí algunos de los lugares favoritos de nuestra comunidad.</p>
         </div>
+        <!-- Cada article es una tarjeta independiente con una foto y el nombre de un destino. -->
         <div class="bloques-destinos">
             <article class="tarjeta-destino">
+                <!-- src indica dónde está la imagen y alt describe la imagen si no se puede ver. -->
                 <img src="imagenes/tokyo_img_inicio.jpg" alt="Vista nocturna de Tokio con el monte Fuji al fondo">
                 <h3>Tokio, Japón</h3>
             </article>
@@ -123,50 +149,54 @@
         </div>
     </section>
 
+    <!-- Segunda sección temática: explica visualmente qué ofrece el proyecto. -->
     <section class="seccion-ventajas" aria-labelledby="titulo-ventajas">
         <div class="encabezado-seccion">
             <h2 id="titulo-ventajas">¿Por qué FixerFlight?</h2>
             <p>Todo lo que necesitás para planificar tu viaje desde un solo lugar.</p>
         </div>
+        <!-- Estas tarjetas son textos informativos, no botones ni funciones activas. -->
         <div class="bloques-ventajas">
             <article class="tarjeta-ventaja">
                 <h3>Comparación real</h3>
-                <p>Precios de aerolíneas, agencias y OTAs en tiempo real, sin costos ocultos ni sorpresas.</p>
+                <p>Una vista visual para revisar opciones de vuelos de ejemplo.</p>
             </article>
             <article class="tarjeta-ventaja">
                 <h3>Guardá lo que te gusta</h3>
-                <p>Conservá tus destinos y opciones favoritas para volver a encontrarlas fácilmente.</p>
+                <p>La pantalla de Guardados está preparada para una próxima versión.</p>
             </article>
             <article class="tarjeta-ventaja">
                 <h3>Planificación integrada</h3>
-                <p>Organizá los detalles de tu próximo viaje en un solo lugar.</p>
+                <p>El planificador muestra dónde se organizarán tus viajes.</p>
             </article>
             <article class="tarjeta-ventaja">
                 <h3>Guía de destinos</h3>
-                <p>Explorá lugares nuevos y encontrá inspiración para tu próxima aventura.</p>
+                <p>Conoce puntos de interés de diferentes ciudades.</p>
             </article>
             <article class="tarjeta-ventaja">
-                <h3>Alertas de precios</h3>
-                <p>Seguí las tarifas y encontrá el momento indicado para reservar.</p>
+                <h3>Precios de ejemplo</h3>
+                <p>Las tarifas mostradas en Destinos son valores de referencia para el proyecto.</p>
             </article>
             <article class="tarjeta-ventaja">
-                <h3>Listas personalizadas</h3>
-                <p>Reuní tus destinos favoritos en listas para planificar a tu manera.</p>
+                <h3>Funciones próximas</h3>
+                <p>Las acciones de búsqueda, guardado y planificación se conectarán más adelante.</p>
             </article>
         </div>
     </section>
 
   </main>
 
-  <!-- Barra inferior -->
+  <!-- Pie de página: repite la identidad del proyecto y muestra contacto y enlaces. -->
   <footer class="footer">
     <div class="footer-contenido">
 
+        <!-- Primera columna del pie: nombre y breve descripción. -->
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Comparador de vuelos. Encuentra los mejores precios a tu destino ideal.</p>
+            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
         </div>
 
+        <!-- Datos de contacto. mailto: abre el programa de correo y tel: permite llamar desde el celular. -->
         <div class="footer-col">
             <h4>Contacto</h4>
             <ul>
@@ -177,6 +207,7 @@
             </ul>
         </div>
 
+        <!-- Enlaces a las mismas páginas que aparecen en la navegación superior. -->
         <div class="footer-col">
             <h4>Enlaces</h4>
             <ul>
@@ -187,6 +218,7 @@
             </ul>
         </div>
 
+        <!-- Enlaces sociales de muestra; # no lleva todavía a una cuenta externa. -->
         <div class="footer-col">
             <h4>Síguenos</h4>
             <ul>
@@ -198,6 +230,7 @@
 
     </div>
 
+    <!-- Aviso de derechos y año mostrado en la página. -->
     <div class="footer-copy">
         <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
     </div>

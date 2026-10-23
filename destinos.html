@@ -28,16 +28,16 @@
         
         
         <ul class="nav-menu">
-            <li><a href="index.html" data-page="inicio">Inicio</a></li>
-            <li><a href="destinos.html" data-page="destinos" class="active" >Destinos</a></li>
-            <li><a href="planificador.html" data-page="planificador">Planificador</a></li>
-            <li><a href="guardados.html" data-page="guardados">Guardados</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="destinos.html" class="active">Destinos</a></li>
+            <li><a href="planificador.html">Planificador</a></li>
+            <li><a href="guardados.html">Guardados</a></li>
         </ul>
 
         
         <div class="sesion">
             <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <button type="button" class="btn-crear" onclick="window.location.href='crear.html'">Crear Cuenta</button>
+            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
         </div>
       
    </header>
@@ -45,10 +45,104 @@
     <section class="seccion-destinos">
         <span class="etiqueta-destinos">GUIA TURISTICA</span>
         <h2>Puntos de interés para tu viaje</h2>
-        <p class="introduccion-destinos">Explora estos lugares de ejemplo y guarda los que quieras visitar. Los costos son valores aproximados definidos para el proyecto.</p>
+        <p class="introduccion-destinos">Explora lugares recomendados y compara dos opciones de vuelo para cada destino. Los precios son valores de ejemplo para este proyecto.</p>
 
-        <!-- JavaScript muestra aquí los puntos definidos en scripts/destinos.js -->
-        <div class="lista-destinos" id="listaDestinos"></div>
+        <div class="lista-destinos">
+            <!-- París: precios y horarios de vuelos definidos como ejemplo. -->
+            <article class="tarjeta-destino">
+                <h3>París, Francia</h3>
+                <p class="descripcion-destino">Puntos de interés: Torre Eiffel y Museo del Louvre.</p>
+                <p class="dato-punto">Mejor época: abril a junio</p>
+                <button class="boton-punto" type="button" disabled>Guardar destino</button>
+                <h4>Vuelos desde Bogotá</h4>
+                <div class="opcion-vuelo">
+                    <div><strong>Air France</strong><span>Directo · 10 h 15 min</span></div>
+                    <strong class="precio-vuelo">$ 3.250.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+                <div class="opcion-vuelo">
+                    <div><strong>Iberia</strong><span>1 escala · 13 h 40 min</span></div>
+                    <strong class="precio-vuelo">$ 2.780.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+            </article>
+
+            <!-- Roma: dos alternativas de vuelo para comparar más adelante. -->
+            <article class="tarjeta-destino">
+                <h3>Roma, Italia</h3>
+                <p class="descripcion-destino">Punto de interés: Coliseo Romano.</p>
+                <p class="dato-punto">Mejor época: abril a junio</p>
+                <button class="boton-punto" type="button" disabled>Guardar destino</button>
+                <h4>Vuelos desde Bogotá</h4>
+                <div class="opcion-vuelo">
+                    <div><strong>ITA Airways</strong><span>1 escala · 14 h 10 min</span></div>
+                    <strong class="precio-vuelo">$ 3.100.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+                <div class="opcion-vuelo">
+                    <div><strong>Air Europa</strong><span>1 escala · 15 h 25 min</span></div>
+                    <strong class="precio-vuelo">$ 2.690.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+            </article>
+
+            <!-- Cartagena: la entrada a la ciudad amurallada es libre; vuelos de ejemplo. -->
+            <article class="tarjeta-destino">
+                <h3>Cartagena, Colombia</h3>
+                <p class="descripcion-destino">Punto de interés: Ciudad Amurallada (entrada libre).</p>
+                <p class="dato-punto">Mejor época: diciembre a abril</p>
+                <button class="boton-punto" type="button" disabled>Guardar destino</button>
+                <h4>Vuelos desde Bogotá</h4>
+                <div class="opcion-vuelo">
+                    <div><strong>Avianca</strong><span>Directo · 1 h 35 min</span></div>
+                    <strong class="precio-vuelo">$ 320.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+                <div class="opcion-vuelo">
+                    <div><strong>LATAM</strong><span>Directo · 1 h 30 min</span></div>
+                    <strong class="precio-vuelo">$ 285.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+            </article>
+
+            <!-- Río de Janeiro: precios estimados para visitar el Cristo Redentor. -->
+            <article class="tarjeta-destino">
+                <h3>Río de Janeiro, Brasil</h3>
+                <p class="descripcion-destino">Punto de interés: Cristo Redentor.</p>
+                <p class="dato-punto">Mejor época: mayo a octubre</p>
+                <button class="boton-punto" type="button" disabled>Guardar destino</button>
+                <h4>Vuelos desde Bogotá</h4>
+                <div class="opcion-vuelo">
+                    <div><strong>GOL</strong><span>Directo · 6 h 15 min</span></div>
+                    <strong class="precio-vuelo">$ 1.850.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+                <div class="opcion-vuelo">
+                    <div><strong>LATAM</strong><span>1 escala · 8 h 20 min</span></div>
+                    <strong class="precio-vuelo">$ 1.620.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+            </article>
+
+            <!-- Tokio: dos opciones de vuelo para conocer el cruce de Shibuya. -->
+            <article class="tarjeta-destino">
+                <h3>Tokio, Japón</h3>
+                <p class="descripcion-destino">Punto de interés: Cruce de Shibuya (entrada libre).</p>
+                <p class="dato-punto">Mejor época: marzo a mayo</p>
+                <button class="boton-punto" type="button" disabled>Guardar destino</button>
+                <h4>Vuelos desde Bogotá</h4>
+                <div class="opcion-vuelo">
+                    <div><strong>Japan Airlines</strong><span>1 escala · 22 h 30 min</span></div>
+                    <strong class="precio-vuelo">$ 5.200.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+                <div class="opcion-vuelo">
+                    <div><strong>United Airlines</strong><span>1 escala · 24 h 05 min</span></div>
+                    <strong class="precio-vuelo">$ 4.750.000 COP</strong>
+                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
+                </div>
+            </article>
+        </div>
     </section>
  </main>
 
@@ -57,7 +151,7 @@
 
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Comparador de vuelos. Encuentra los mejores precios a tu destino ideal.</p>
+            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
         </div>
 
         <div class="footer-col">
@@ -98,6 +192,5 @@
 
 
 </footer>
-    <script src="scripts/destinos.js"></script>
 </body>
 </html>

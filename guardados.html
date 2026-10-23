@@ -31,7 +31,7 @@
 
         <div class="sesion">
             <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <button type="button" class="btn-crear" onclick="window.location.href='crear.html'">Crear Cuenta</button>
+            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
         </div>
     </header>
 
@@ -41,11 +41,12 @@
             <h2>Destinos guardados</h2>
             <p class="introduccion-destinos">Aquí aparecen los puntos de interés que guardes desde la página de Destinos.</p>
 
-            <!-- Los lugares se cargan desde el almacenamiento del navegador. -->
+            <!-- Este espacio queda vacío hasta implementar Guardados con JavaScript. -->
             <p class="mensaje-vacio" id="mensajeVacio">
-                Aún no tienes lugares guardados. Explora los destinos y añade los que te interesen.
+                Aún no tienes lugares guardados. La opción para añadir destinos estará disponible en una próxima versión.
                 <a class="enlace-destinos" href="destinos.html">Ver puntos de interés</a>
             </p>
+            <!-- Contenedor vacío reservado para los destinos guardados. -->
             <div class="lista-destinos" id="listaGuardados"></div>
         </section>
     </main>
@@ -54,7 +55,7 @@
         <div class="footer-contenido">
             <div class="footer-col">
                 <h3>Fixer<span class="text-cyan">Flight</span></h3>
-                <p>Comparador de vuelos. Encuentra los mejores precios a tu destino ideal.</p>
+                <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
             </div>
             <div class="footer-col">
                 <h4>Contacto</h4>
@@ -87,7 +88,5 @@
             <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script src="scripts/guardados.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
       
     <header class="contenedor"> 
 
-        <a href="#" class="logo-link">
+        <a href="index.html" class="logo-link">
             <div class="logo">
                 <div class="icon-circle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="avion-icon">
@@ -40,7 +40,7 @@
         
         <div class="sesion">
             <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <button type="button" class="btn-crear" onclick="window.location.href='crear.html'">Crear Cuenta</button>
+            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
         </div>
  
    </header>
@@ -61,7 +61,7 @@
         </h2>
 
         <p class="descripcion">
-            Crea viajes, agrega vuelos y planifica cada detalle
+            Vista de planificación. Las funciones para crear viajes y agregar vuelos estarán disponibles próximamente.
         </p>
 
     </section>
@@ -79,13 +79,13 @@
                     id="nombreViaje"
                     class="input-viaje">
 
-                <button class="btn-agregar">
+                <button class="btn-agregar" type="button" disabled>
                     +
                 </button>
 
             </div>
 
-            <!-- LOS VIAJES SE GENERAN AQUI -->
+            <!-- Espacio vacío reservado para los viajes del usuario. -->
             <div id="contenedorViajes">
 
             </div>
@@ -142,6 +142,7 @@
                     Vuelos en este viaje
                 </h3>
 
+                <!-- Aquí se podrán comparar los vuelos elegidos desde Destinos. -->
                 <div id="contenedorVuelos">
 
                     <p class="mensaje-vacio">
@@ -224,7 +225,7 @@
 
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Comparador de vuelos. Encuentra los mejores precios a tu destino ideal.</p>
+            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
         </div>
 
         <div class="footer-col">

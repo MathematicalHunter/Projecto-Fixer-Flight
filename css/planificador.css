@@ -235,6 +235,11 @@
     background-color: #00b8b9;
 }
 
+.btn-agregar:disabled{
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
 #contenedorViajes{
     display: flex;
     flex-direction: column;
