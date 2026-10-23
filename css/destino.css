@@ -74,7 +74,7 @@
    */
 .nav-menu {
     display: flex;
-    gap: 30px; /* Reemplaza el padding del li por "gap", es más limpio */
+    gap: 30px; 
 }
 
 .nav-menu li {
@@ -143,16 +143,3 @@
     transform: scale(0.95); 
 }
 
-/* Todas las secciones ocultas por defecto */
-.page {
-    display: none;
-    padding: 40px 5%;
-    color: #323fa1;
-    background-color: rgb(253, 251, 251);
-    min-height: calc(100vh - 80px); /* ocupa el resto de la pantalla */
-}
-
-/* Solo la que tenga "active" se ve */
-.page.active {
-    display: block;
-}
