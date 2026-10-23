@@ -50,33 +50,111 @@
     <h1>Tu proximo Viaje, al mejor precio</h1>
     <p>Comparamos vuelos de 150+ aerolíneas para que vos elijas la mejor opción sin perder tiempo.</p>
     
-    <!-- aqui va el formulario --> 
+    <form class="busqueda-vuelos">
+        <div class="busqueda-opciones">
+            <div class="tipo-viaje" role="group" aria-label="Tipo de viaje">
+                <label><input type="radio" name="tipo-viaje" value="ida-vuelta" checked><span>Ida y vuelta</span></label>
+                <label><input type="radio" name="tipo-viaje" value="solo-ida"><span>Solo ida</span></label>
+                <label><input type="radio" name="tipo-viaje" value="multidestino"><span>Multidestino</span></label>
+            </div>
+            <div class="preferencias-viaje">
+                <label class="visualmente-oculto" for="clase-vuelo">Clase</label>
+                <select id="clase-vuelo" name="clase">
+                    <option>Economy</option>
+                    <option>Premium Economy</option>
+                    <option>Business</option>
+                    <option>First Class</option>
+                </select>
+                <label class="visualmente-oculto" for="pasajeros">Pasajeros</label>
+                <input id="pasajeros" name="pasajeros" type="number" min="1" max="9" value="1">
+            </div>
+        </div>
 
-    <img src="/imagenes/tokyo_img_inicio.jpg">
-    <img src="/imagenes/paris_img_inicio.jpg">
-    <img src="/imagenes/newyork_img_inicio.jpg">
-    <img src="/imagenes/bali_img_inicio.jpg">
+        <div class="campos-vuelo">
+            <div class="campo-vuelo">
+                <label for="origen">Origen</label>
+                <input id="origen" name="origen" type="text" placeholder="✈  Ciudad o aeropuerto">
+            </div>
+            <div class="campo-vuelo">
+                <label for="destino-vuelo">Destino</label>
+                <input id="destino-vuelo" name="destino" type="text" placeholder="📍  ¿A dónde vas?">
+            </div>
+            <div class="campo-vuelo">
+                <label for="fecha-ida">Ida</label>
+                <input id="fecha-ida" name="fecha-ida" type="date">
+            </div>
+            <div class="campo-vuelo">
+                <label for="fecha-vuelta">Vuelta</label>
+                <input id="fecha-vuelta" name="fecha-vuelta" type="date">
+            </div>
+        </div>
+        <button class="boton-buscar" type="submit">⌕ Buscar vuelos</button>
+    </form>
 
-    <h2>¿Por que fixerflight?</h2>
-    <p> Todo lo que necesitás para planificar tu viaje desde un solo <br>lugar</p>
+    <ul class="estadisticas-viaje" aria-label="Datos de FixerFlight">
+        <li><strong>150+</strong><span>Aerolíneas</span></li>
+        <li><strong>500+</strong><span>Destinos</span></li>
+        <li><strong>$0</strong><span>Comisión</span></li>
+        <li><strong>24/7</strong><span>Disponible</span></li>
+    </ul>
 
-    <h4>Comparacion real</h4>
-    <p>Precios de aerolíneas, agencias y OTAs en tiempo real. Sin<br> costos ocultos ni sorpresas.</p>
+    <section class="seccion-destinos" aria-labelledby="titulo-destinos">
+        <div class="encabezado-seccion">
+            <h2 id="titulo-destinos">Destinos para inspirarte</h2>
+            <p>Descubrí algunos de los lugares favoritos de nuestra comunidad.</p>
+        </div>
+        <div class="bloques-destinos">
+            <article class="tarjeta-destino">
+                <img src="imagenes/tokyo_img_inicio.jpg" alt="Vista nocturna de Tokio con el monte Fuji al fondo">
+                <h3>Tokio, Japón</h3>
+            </article>
+            <article class="tarjeta-destino">
+                <img src="imagenes/Pariz_img_inicio.jpg" alt="Vista panorámica de París y la Torre Eiffel">
+                <h3>París, Francia</h3>
+            </article>
+            <article class="tarjeta-destino">
+                <img src="imagenes/newyork_img_inicio.jpg" alt="Edificios de Nueva York al atardecer">
+                <h3>Nueva York, Estados Unidos</h3>
+            </article>
+            <article class="tarjeta-destino">
+                <img src="imagenes/bali_img_inicio.jpg" alt="Templo junto al lago en Bali">
+                <h3>Bali, Indonesia</h3>
+            </article>
+        </div>
+    </section>
 
-    <h4>Guarda lo que te gusta</h4>
-    <p></p>
-
-    <h4>Planificacion integrada</h4>
-    <p></p>
-
-    <h4>Guia de destinos</h4>
-    <p></p>
-
-    <h4>Alerta de precios</h4>
-    <p></p>
-
-    <h4>Lisas personalizadas</h4>
-    <p></p>
+    <section class="seccion-ventajas" aria-labelledby="titulo-ventajas">
+        <div class="encabezado-seccion">
+            <h2 id="titulo-ventajas">¿Por qué FixerFlight?</h2>
+            <p>Todo lo que necesitás para planificar tu viaje desde un solo lugar.</p>
+        </div>
+        <div class="bloques-ventajas">
+            <article class="tarjeta-ventaja">
+                <h3>Comparación real</h3>
+                <p>Precios de aerolíneas, agencias y OTAs en tiempo real, sin costos ocultos ni sorpresas.</p>
+            </article>
+            <article class="tarjeta-ventaja">
+                <h3>Guardá lo que te gusta</h3>
+                <p>Conservá tus destinos y opciones favoritas para volver a encontrarlas fácilmente.</p>
+            </article>
+            <article class="tarjeta-ventaja">
+                <h3>Planificación integrada</h3>
+                <p>Organizá los detalles de tu próximo viaje en un solo lugar.</p>
+            </article>
+            <article class="tarjeta-ventaja">
+                <h3>Guía de destinos</h3>
+                <p>Explorá lugares nuevos y encontrá inspiración para tu próxima aventura.</p>
+            </article>
+            <article class="tarjeta-ventaja">
+                <h3>Alertas de precios</h3>
+                <p>Seguí las tarifas y encontrá el momento indicado para reservar.</p>
+            </article>
+            <article class="tarjeta-ventaja">
+                <h3>Listas personalizadas</h3>
+                <p>Reuní tus destinos favoritos en listas para planificar a tu manera.</p>
+            </article>
+        </div>
+    </section>
 
   </main>
 
