@@ -1,0 +1,166 @@
+/* ===== ESTILOS DE LA PÁGINA DE LOGIN ===== */
+.body-login {
+    background-color: rgb(2, 15, 30); /* El fondo principal de tu web */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: rgb(4, 16, 30); /* El color de tu header */
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 210, 211, 0.15); /* Borde sutil cian */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Encabezado del login (Logo) */
+.login-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.login-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: rgb(122, 176, 196); /* Color de tus textos secundarios */
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Formulario e Inputs */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.input-group input {
+    background-color: transparent;
+    border: 1px solid rgba(122, 176, 196, 0.3);
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+/* Efecto cuando el usuario hace clic en el input */
+.input-group input:focus {
+    border-color: #00d2d3;
+    box-shadow: 0 0 0 2px rgba(0, 210, 211, 0.2);
+}
+
+.input-group input::placeholder {
+    color: rgba(122, 176, 196, 0.5);
+}
+
+/* Opciones (Recordarme y Olvidé contraseña) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.remember-me {
+    color: rgb(122, 176, 196);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.remember-me input {
+    accent-color: #00d2d3; /* Color del checkbox */
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #00d2d3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #ffffff;
+}
+
+/* Botón ancho completo */
+.btn-full {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Enlace para registrarse abajo */
+.register-link {
+    text-align: center;
+    color: rgb(122, 176, 196);
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.register-link a {
+    color: #00d2d3;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #ffffff;
+}
+
+/* ===== BOTÓN VOLVER AL INICIO ===== */
+.btn-volver {
+    display: inline-block;
+    color: rgb(122, 176, 196); /* Color grisáceo/azulado */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px; /* Lo separa del logo */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-volver:hover {
+    color: #00d2d3; /* Cambia a cian al pasar el ratón */
+    transform: translateX(-4px); /* Efecto de movimiento hacia la izquierda */
+}
+
+/* monda*/
