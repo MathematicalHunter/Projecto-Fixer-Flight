@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Vuelos</title>
+    <link  href="css/stlyles2.css">
+
+</head>
+<body>
+    
+<main class="planificador">
+
+    <!-- TÍTULO -->
+    <section class="hero-planificador">
+
+        <span class="titulo-seccion">
+            PLANIFICADOR
+        </span>
+
+        <h2 class="titulo-principal">
+            Organizá tu viaje
+        </h2>
+
+        <p class="descripcion">
+            Creá viajes, agregá vuelos y planificá cada detalle
+        </p>
+
+    </section>
+
+    <div class="contenido-planificador">
+
+        <!-- PANEL IZQUIERDO -->
+        <aside class="lista-viajes">
+
+            <div class="crear-viaje">
+
+                <input
+                    type="text"
+                    placeholder="Nombre del viaje..."
+                    id="nombreViaje"
+                    class="input-viaje">
+
+                <button class="btn-agregar">
+                    +
+                </button>
+
+            </div>
+
+            <!-- LOS VIAJES SE GENERAN AQUÍ -->
+            <div id="contenedorViajes">
+
+            </div>
+
+        </aside>
+
+        <!-- PANEL DERECHO -->
+        <section class="detalle-viaje">
+
+            <div class="cabecera-detalle">
+
+                <div>
+
+                    <!-- NOMBRE DEL DESTINO -->
+                    <h2 id="destinoSeleccionado">
+                        Selecciona un destino
+                    </h2>
+
+                    <!-- CIUDAD Y FECHAS -->
+                    <p id="informacionViaje">
+                        Todavía no has agregado ningún viaje.
+                    </p>
+
+                </div>
+
+                <!-- ESTADO -->
+                <span id="estadoViaje">
+                    Sin planificar
+                </span>
+
+            </div>
+
+            <!-- RECORRIDO -->
+            <section class="recorrido">
+
+                <h3>
+                    Recorrido estimado
+                </h3>
+
+                <div id="rutaViaje">
+
+                    <p class="mensaje-vacio">
+                        El recorrido aparecerá aquí cuando selecciones vuelos.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- VUELOS -->
+            <section class="vuelos">
+
+                <h3>
+                    Vuelos en este viaje
+                </h3>
+
+                <div id="contenedorVuelos">
+
+                    <p class="mensaje-vacio">
+                        No hay vuelos agregados.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FECHAS -->
+            <section class="fechas">
+
+                <h3>
+                    Fechas del viaje
+                </h3>
+
+                <div class="datos-fecha">
+
+                    <div>
+
+                        <p>Salida</p>
+
+                        <span id="fechaSalida">
+                            --
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <p>Regreso</p>
+
+                        <span id="fechaRegreso">
+                            --
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <p>Duración</p>
+
+                        <span id="duracionViaje">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RESUMEN -->
+            <section class="resumen">
+
+                <h3>
+                    Resumen del viaje
+                </h3>
+
+                <div id="resumenViaje">
+
+                    <p class="mensaje-vacio">
+                        Cuando el usuario seleccione origen, destino, fechas y vuelos,
+                        toda la información aparecerá en esta sección.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+</body>
+</html>
