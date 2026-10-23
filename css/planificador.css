@@ -1,16 +1,171 @@
-/* =========================
-   PLANIFICADOR
-========================= */
+/* Importar fuente para que se vea igual que la imagen */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor {
+    background-color: rgb(4, 16, 30); 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 5%;
+    height: 80px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* LOGO DE FIXER FLIHGT*/
+.logo-link {
+    text-decoration: none; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+/* CIRCULO LOGO BARRA SUPERIOR*/
+.icon-circle {
+    width: 45px; 
+    height: 45px;
+    background-color: #00d2d3; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* AVION ADENTRO DEL CIRCULO */
+.avion-icon {
+    width: 22px;
+    height: 22px;
+    color: #000000; 
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-title {
+    margin: 0;
+    font-size: 22px; 
+    font-weight: 800;
+    line-height: 1;
+}
+
+.text-white { color: #ffffff; }
+.text-cyan { color: #00d2d3; }
+
+.subtitle {
+    margin: 2px 0 0 0;
+    font-size: 8px; 
+    font-weight: 700;
+    color: rgb(122, 176, 196); 
+    letter-spacing: 1.5px;
+}
+
+/* 
+   ESTILOS DEL MENÚ DE NAVEGACIÓN
+   */
+.nav-menu {
+    display: flex;
+    gap: 30px; /* Reemplaza el padding del li por "gap", es más limpio */
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: rgb(122, 176, 196);
+    text-decoration: none; 
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease; 
+}
+
+
+.nav-menu li a:hover {
+    color: #00d2d3;
+}
+.nav-menu :active {
+     transform: scale(0.90);
+}
+
+/* 
+   ESTILOS DE LA SECCIÓN DE SESIÓN
+    */
+.sesion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Inicio_sesion {
+    color: rgb(122, 176, 196);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.Inicio_sesion:active{
+
+     transform: scale(0.90);
+}
+
+.Inicio_sesion:hover {
+    color: #ffffff;
+}
+
+/* Estilo del botón Crear Cuenta */
+.btn-crear {
+    background-color: #000000; 
+    color: rgb(4, 16, 30); 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px; 
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-crear:hover {
+    background-color: #00b8b9; 
+}
+
+.btn-crear:active {
+    transform: scale(0.95); 
+}
+
+
+
+
+
+
+
+/* BORDE DE LA PÁGINA */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PLANIFICADOR */
 
 .planificador{
     background-color: #020f1d;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 100px);
     padding: 50px 8%;
 }
 
-/* =========================
-   TITULO
-========================= */
+ /*TITULO*/
 
 .hero-planificador{
     margin-bottom: 40px;
@@ -24,7 +179,7 @@
 }
 
 .titulo-principal{
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 65px;
     font-style: italic;
     font-weight: 700;
@@ -37,9 +192,7 @@
     margin-top: 10px;
 }
 
-/* =========================
-   CONTENEDOR PRINCIPAL
-========================= */
+/* CONTENEDOR PRINCIPAL */
 
 .contenido-planificador{
     display: flex;
@@ -47,9 +200,7 @@
     margin-top: 40px;
 }
 
-/* =========================
-   PANEL IZQUIERDO
-========================= */
+/* PANEL IZQUIERDO */
 
 .lista-viajes{
     width: 35%;
@@ -99,9 +250,7 @@
     gap: 15px;
 }
 
-/* =========================
-   PANEL DERECHO
-========================= */
+/* PANEL DERECHO */
 
 .detalle-viaje{
     flex: 1;
@@ -111,9 +260,7 @@
     padding: 25px;
 }
 
-/* =========================
-   CABECERA
-========================= */
+/* CABECERA */
 
 .cabecera-detalle{
     display: flex;
@@ -141,9 +288,7 @@
     font-weight: 700;
 }
 
-/* =========================
-   TARJETAS INTERNAS
-========================= */
+/* TARJETAS INTERNAS */
 
 .recorrido,
 .vuelos,
@@ -163,9 +308,7 @@
     margin-bottom: 20px;
 }
 
-/* =========================
-   MENSAJES VACIOS
-========================= */
+/* MENSAJES VACIOS */
 
 .mensaje-vacio{
     color: rgb(122, 176, 196);
@@ -174,25 +317,19 @@
     font-size: 14px;
 }
 
-/* =========================
-   RECORRIDO
-========================= */
+/* RECORRIDO */
 
 #rutaViaje{
     min-height: 150px;
 }
 
-/* =========================
-   VUELOS
-========================= */
+/* VUELOS */
 
 #contenedorVuelos{
     min-height: 100px;
 }
 
-/* =========================
-   FECHAS
-========================= */
+/* FECHAS */
 
 .datos-fecha{
     display: flex;
@@ -217,9 +354,7 @@
     font-weight: 700;
 }
 
-/* =========================
-   RESUMEN
-========================= */
+/* RESUMEN */
 
 #resumenViaje{
     color: rgb(122, 176, 196);
@@ -227,9 +362,7 @@
     line-height: 1.6;
 }
 
-/* =========================
-   SCROLL
-========================= */
+/* SCROLL */
 
 ::-webkit-scrollbar{
     width: 8px;
@@ -244,9 +377,7 @@
     border-radius: 10px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width: 1000px){
 

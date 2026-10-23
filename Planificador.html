@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FixerFlight</title>
-    <link rel="stylesheet" href="css/planificador.css">
+    <link rel="stylesheet" href="css/planificador.css"> 
+    <link rel="stylesheet" href="css/stlyles.css">
 </head>
-
 <body>
-   <header class="contenedor"> 
-        
+
+    <header class="contenedor"> 
+
         <a href="#" class="logo-link">
             <div class="logo">
                 <div class="icon-circle">
@@ -28,10 +29,10 @@
         
         
         <ul class="nav-menu">
-            <li><a href="index.html" data-page="inicio">Inicio</a></li>
-            <li><a href="destinos.html" data-page="destinos">Destinos</a></li>
-            <li><a href="planificador.html" data-page="planificador">Planificador</a></li>
-            <li><a href="guardados.html" data-page="guardados">Guardados</a></li>
+            <li><a href="#Inicio">Inicio</a></li>
+            <li><a href="#Destino">Destinos</a></li>
+            <li><a href="#Planificador">Planificador</a></li>
+            <li><a href="#Guardados">Guardados</a></li>
         </ul>
 
         
@@ -39,9 +40,180 @@
             <a href="#Inicio_Sesion" class="Inicio_sesion">Inicio De Sesión</a>
             <button type="button" class="btn-crear">Crear Cuenta</button>
         </div>
-      
-   </header>
-
  
+   </header>
+    
+    <main class="planificador">
+
+    <!-- TITULO -->
+    <section class="hero-planificador">
+
+        <span class="titulo-seccion">
+            PLANIFICADOR
+        </span>
+
+        <h2 class="titulo-principal">
+            Organiza tu viaje
+        </h2>
+
+        <p class="descripcion">
+            Crea viajes, agrega vuelos y planifica cada detalle
+        </p>
+
+    </section>
+
+    <div class="contenido-planificador">
+
+        <!-- PANEL IZQUIERDO -->
+        <aside class="lista-viajes">
+
+            <div class="crear-viaje">
+
+                <input
+                    type="text"
+                    placeholder="Nombre del viaje..."
+                    id="nombreViaje"
+                    class="input-viaje">
+
+                <button class="btn-agregar">
+                    +
+                </button>
+
+            </div>
+
+            <!-- LOS VIAJES SE GENERAN AQUI -->
+            <div id="contenedorViajes">
+
+            </div>
+
+        </aside>
+
+        <!-- PANEL DERECHO -->
+        <section class="detalle-viaje">
+
+            <div class="cabecera-detalle">
+
+                <div>
+
+                    <!-- NOMBRE DEL DESTINO -->
+                    <h2 id="destinoSeleccionado">
+                        Selecciona un destino
+                    </h2>
+
+                    <!-- CIUDAD Y FECHAS -->
+                    <p id="informacionViaje">
+                        Todavia no has agregado ningun viaje.
+                    </p>
+
+                </div>
+
+                <!-- ESTADO -->
+                <span id="estadoViaje">
+                    Sin planificar
+                </span>
+
+            </div>
+
+            <!-- RECORRIDO -->
+            <section class="recorrido">
+
+                <h3>
+                    Recorrido estimado
+                </h3>
+
+                <div id="rutaViaje">
+
+                    <p class="mensaje-vacio">
+                        El recorrido aparecera aqui cuando selecciones vuelos.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- VUELOS -->
+            <section class="vuelos">
+
+                <h3>
+                    Vuelos en este viaje
+                </h3>
+
+                <div id="contenedorVuelos">
+
+                    <p class="mensaje-vacio">
+                        No hay vuelos agregados.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FECHAS -->
+            <section class="fechas">
+
+                <h3>
+                    Fechas del viaje
+                </h3>
+
+                <div class="datos-fecha">
+
+                    <div>
+
+                        <p>Salida</p>
+
+                        <span id="fechaSalida">
+                            --
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <p>Regreso</p>
+
+                        <span id="fechaRegreso">
+                            --
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <p>Duracion</p>
+
+                        <span id="duracionViaje">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RESUMEN -->
+            <section class="resumen">
+
+                <h3>
+                    Resumen del viaje
+                </h3>
+
+                <div id="resumenViaje">
+
+                    <p class="mensaje-vacio">
+                        Cuando el usuario seleccione origen, destino, fechas y vuelos,
+                        toda la informacion aparecera en esta seccion.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+</main>
+
 </body>
 </html>
