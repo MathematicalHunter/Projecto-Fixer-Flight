@@ -1,12 +1,6 @@
 /* Importar fuente para que se vea igual que la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
+/* CONVINE EL CODIGO DE CSS CON EL DARKEY */
 
 .contenedor {
     background-color: rgb(4, 16, 30); 
@@ -146,7 +140,7 @@
 
 
 
-
+/* CODIGO MIO DE CSS */
 
 
 /* BORDE DE LA PÁGINA */

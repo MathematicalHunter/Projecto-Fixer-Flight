@@ -1,0 +1,162 @@
+/* Importar fuente para que se vea igual que la imagen */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor {
+    background-color: rgb(4, 16, 30); 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 5%;
+    height: 80px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* LOGO DE FIXER FLIHGT*/
+.logo-link {
+    text-decoration: none; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+/* CIRCULO LOGO BARRA SUPERIOR*/
+.icon-circle {
+    width: 45px; 
+    height: 45px;
+    background-color: rgb(0, 210, 211); 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* AVION ADENTRO DEL CIRCULO */
+.avion-icon {
+    width: 22px;
+    height: 22px;
+    color: #000000; 
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-title {
+    margin: 0;
+    font-size: 22px; 
+    font-weight: 800;
+    line-height: 1;
+}
+
+.text-white { color: #ffffff; }
+.text-cyan { color: rgb(0, 210, 211); }
+
+.subtitle {
+    margin: 2px 0 0 0;
+    font-size: 8px; 
+    font-weight: 700;
+    color: rgb(122, 176, 196); 
+    letter-spacing: 1.5px;
+}
+
+/* 
+   ESTILOS DEL MENÚ DE NAVEGACIÓN
+   */
+.nav-menu {
+    display: flex;
+    gap: 30px; 
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: rgb(122, 176, 196);
+    text-decoration: none; 
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease; 
+}
+
+
+.nav-menu li a:hover {
+    color: #00d2d3;
+}
+
+.nav-menu li a.active {
+    color: #00d2d3;
+    position: relative;
+}
+.nav-menu li a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00d2d3;
+    border-radius: 2px;
+}
+
+
+.nav-menu :active {
+     transform: scale(0.90);
+}
+
+/* 
+   ESTILOS DE LA SECCIÓN DE SESIÓN
+    */
+.sesion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Inicio_sesion {
+    color: rgb(122, 176, 196);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.Inicio_sesion:active{
+
+     transform: scale(0.90);
+}
+
+.Inicio_sesion:hover {
+    color: #ffffff;
+}
+
+/* Estilo del botón Crear Cuenta */
+.btn-crear {
+    background-color: rgb(0, 210, 211); 
+    color: rgb(4, 16, 30); 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px; 
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-crear:hover {
+    background-color: rgb(0, 184, 185); 
+}
+
+.btn-crear:active {
+    transform: scale(0.95); 
+}
+
