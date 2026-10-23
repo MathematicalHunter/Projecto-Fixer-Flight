@@ -1,72 +1,51 @@
-(() => {
-    const grid = document.querySelector("#rejillaGuardados");
-    const searchInput = document.querySelector("#buscarGuardados");
-    const countTotal = document.querySelector("#totalGuardados");
-    const status = document.querySelector("#estadoResultados");
-    const emptyState = document.querySelector("#sinResultados");
-    const filterButtons = [...document.querySelectorAll(".filtro-tipo")];
-    let cards = [...grid.querySelectorAll(".tarjeta-guardado")];
-    let activeFilter = "todos";
+// Esta clave permite que Destinos y Guardados compartan los mismos lugares.
+const claveGuardados = "fixerFlightDestinosGuardados";
+const listaGuardados = document.querySelector("#listaGuardados");
+const mensajeVacio = document.querySelector("#mensajeVacio");
 
-    const normalize = (value) => value
-        .toLocaleLowerCase("es")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+// Muestra en pantalla los lugares que se han guardado.
+function mostrarGuardados() {
+    const destinos = JSON.parse(localStorage.getItem(claveGuardados) || "[]");
+    listaGuardados.innerHTML = "";
 
-    const update = () => {
-        const searchTerm = normalize(searchInput.value.trim());
-        let visibleCount = 0;
+    mensajeVacio.hidden = destinos.length > 0;
 
-        cards.forEach((card) => {
-            const matchesType = activeFilter === "todos" || card.dataset.tipo === activeFilter;
-            const searchableText = normalize(`${card.dataset.busqueda} ${card.textContent}`);
-            const matchesSearch = searchableText.includes(searchTerm);
-            card.hidden = !matchesType || !matchesSearch;
-            if (!card.hidden) visibleCount += 1;
+    destinos.forEach((destino) => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "tarjeta-punto";
+
+        const categoria = document.createElement("span");
+        categoria.className = "categoria-punto";
+        categoria.textContent = destino.categoria;
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = destino.nombre;
+
+        const lugar = document.createElement("p");
+        lugar.textContent = `${destino.ciudad}, ${destino.pais}`;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = destino.descripcion;
+
+        const datos = document.createElement("p");
+        datos.className = "dato-punto";
+        datos.textContent = `Entrada aproximada: ${destino.precio}`;
+
+        const botonQuitar = document.createElement("button");
+        botonQuitar.className = "boton-punto boton-quitar";
+        botonQuitar.type = "button";
+        botonQuitar.textContent = "Quitar de guardados";
+
+        // Al quitar un lugar, actualizamos la lista y volvemos a mostrarla.
+        botonQuitar.addEventListener("click", () => {
+            const destinosActualizados = destinos.filter((item) => item.id !== destino.id);
+            localStorage.setItem(claveGuardados, JSON.stringify(destinosActualizados));
+            mostrarGuardados();
         });
 
-        countTotal.textContent = String(cards.length);
-        filterButtons.forEach((button) => {
-            const type = button.dataset.filtro;
-            const count = type === "todos"
-                ? cards.length
-                : cards.filter((card) => card.dataset.tipo === type).length;
-            button.querySelector("span").textContent = String(count);
-        });
-
-        emptyState.hidden = visibleCount > 0;
-        if (visibleCount > 0) {
-            status.textContent = `Se muestran ${visibleCount} ${visibleCount === 1 ? "opción" : "opciones"}.`;
-        } else if (cards.length === 0) {
-            status.textContent = "No tienes opciones guardadas.";
-        } else {
-            status.textContent = "No hay guardados que coincidan con esta búsqueda o filtro.";
-        }
-    };
-
-    filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            activeFilter = button.dataset.filtro;
-            filterButtons.forEach((filterButton) => {
-                const isActive = filterButton === button;
-                filterButton.classList.toggle("activo", isActive);
-                filterButton.setAttribute("aria-pressed", String(isActive));
-            });
-            update();
-        });
+        tarjeta.append(categoria, titulo, lugar, descripcion, datos, botonQuitar);
+        listaGuardados.appendChild(tarjeta);
     });
+}
 
-    searchInput.addEventListener("input", update);
-
-    grid.addEventListener("click", (event) => {
-        const button = event.target.closest(".quitar-guardado");
-        if (!button) return;
-
-        const card = button.closest(".tarjeta-guardado");
-        cards = cards.filter((savedCard) => savedCard !== card);
-        card.remove();
-        update();
-    });
-
-    update();
-})();
+mostrarGuardados();

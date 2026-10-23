@@ -250,3 +250,185 @@ main {
         text-align: center;
     }
 }
+
+/* ===== DESTINOS Y GUARDADOS ===== */
+.seccion-destinos {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.etiqueta-destinos {
+    color: #00d2d3;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.seccion-destinos > h2 {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 36px;
+}
+
+.introduccion-destinos {
+    margin-top: 10px;
+    color: rgb(122, 176, 196);
+    line-height: 1.6;
+}
+
+.lista-destinos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tarjeta-punto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 22px;
+    border: 1px solid #0a4d6d;
+    border-radius: 16px;
+    background-color: #041b2d;
+}
+
+.categoria-punto {
+    color: #00d2d3;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tarjeta-punto h3 {
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.tarjeta-punto p {
+    color: rgb(122, 176, 196);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.tarjeta-punto .dato-punto {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.boton-punto {
+    margin-top: 5px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #00d2d3;
+    color: #04101e;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.boton-punto:hover {
+    background-color: #00b8b9;
+}
+
+.boton-punto:disabled {
+    background-color: #164158;
+    color: rgb(173, 196, 207);
+    cursor: default;
+}
+
+.boton-quitar {
+    background-color: transparent;
+    border: 1px solid #00d2d3;
+    color: #00d2d3;
+}
+
+.boton-quitar:hover {
+    background-color: #00d2d3;
+    color: #04101e;
+}
+
+.mensaje-vacio {
+    margin-top: 25px;
+    padding: 22px;
+    border: 1px dashed #0a4d6d;
+    border-radius: 12px;
+    color: rgb(122, 176, 196);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.enlace-destinos {
+    display: block;
+    margin-top: 12px;
+    color: #00d2d3;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.enlace-destinos:hover {
+    text-decoration: underline;
+}
+
+.mensaje-vacio[hidden] {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .lista-destinos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .contenedor {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px 5%;
+    }
+
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        padding: 0;
+    }
+
+    .nav-menu li a {
+        font-size: 12px;
+    }
+
+    .sesion {
+        gap: 10px;
+    }
+
+    .Inicio_sesion {
+        font-size: 12px;
+    }
+
+    .btn-crear {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .seccion-destinos > h2 {
+        font-size: 29px;
+    }
+}
+
+@media (max-width: 520px) {
+    .lista-destinos {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+}

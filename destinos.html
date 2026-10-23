@@ -10,7 +10,7 @@
 <body>
    <header class="contenedor"> 
         
-        <a href="#" class="logo-link">
+        <a href="index.html" class="logo-link">
             <div class="logo">
                 <div class="icon-circle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="avion-icon">
@@ -41,9 +41,15 @@
         </div>
       
    </header>
- <main> 
-    <h1>monda</h1>
+ <main>
+    <section class="seccion-destinos">
+        <span class="etiqueta-destinos">GUIA TURISTICA</span>
+        <h2>Puntos de interés para tu viaje</h2>
+        <p class="introduccion-destinos">Explora estos lugares de ejemplo y guarda los que quieras visitar. Los costos son valores aproximados definidos para el proyecto.</p>
 
+        <!-- JavaScript muestra aquí los puntos definidos en scripts/destinos.js -->
+        <div class="lista-destinos" id="listaDestinos"></div>
+    </section>
  </main>
 
  <footer class="footer">
@@ -92,9 +98,6 @@
 
 
 </footer>
-   
-
-
- 
+    <script src="scripts/destinos.js"></script>
 </body>
 </html>
