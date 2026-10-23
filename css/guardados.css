@@ -1,6 +1,5 @@
 /* Importar fuente para que se vea igual que la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
 
 * {
     margin: 0;
@@ -252,131 +251,665 @@ main {
     }
 }
 
-/* ===== ESTILOS DE LA PÁGINA DE GUARDADOS ===== */
-
-.main-guardados {
-    padding: 40px 5%;
-    background-color: rgb(2, 15, 30);
-    min-height: calc(100vh - 80px); /* Ajuste para que el footer quede abajo */
+/* ===== PAGINA DE GUARDADOS ===== */
+.guardados-page {
+    background:
+        radial-gradient(ellipse at 85% 5%, rgba(0, 210, 211, 0.08), transparent 32rem),
+        rgb(2, 15, 30);
+    min-height: calc(100vh - 80px);
+    padding: 64px max(5%, calc((100% - 1200px) / 2)) 80px;
 }
 
-.guardados-container {
+.guardados-hero,
+.coleccion-guardados {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Cabecera (Título y Botones) */
-.guardados-header {
+.guardados-hero {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 12px 0 56px;
+}
+
+.etiqueta-seccion {
+    color: #00d2d3;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.guardados-hero h2 {
+    margin-top: 14px;
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(40px, 5vw, 62px);
+    font-style: italic;
+    line-height: 1.08;
+}
+
+.guardados-hero h2 span {
+    color: #00d2d3;
+}
+
+.guardados-hero-texto > p {
+    max-width: 570px;
+    margin-top: 18px;
+    color: #9db4c2;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.resumen-guardados {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 250px;
+    padding: 20px 24px;
+    border: 1px solid rgba(0, 210, 211, 0.2);
+    border-radius: 18px;
+    background: rgba(6, 33, 54, 0.8);
+}
+
+.resumen-icono {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(0, 210, 211, 0.12);
+    color: #00d2d3;
+    font-size: 28px;
+}
+
+.resumen-guardados div {
+    display: grid;
+    gap: 3px;
+}
+
+.resumen-guardados strong {
+    color: #fff;
+    font-size: 22px;
+}
+
+.resumen-guardados div span,
+.coleccion-cabecera p {
+    color: #9db4c2;
+    font-size: 12px;
+}
+
+.coleccion-guardados {
+    padding-top: 32px;
+    border-top: 1px solid rgba(122, 176, 196, 0.16);
+}
+
+.coleccion-cabecera {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
     gap: 20px;
 }
 
-.header-texto {
+.coleccion-cabecera h2 {
+    margin-top: 8px;
+    color: #fff;
+    font-size: clamp(23px, 3vw, 30px);
+}
+
+.coleccion-cabecera p {
+    margin-top: 8px;
+}
+
+.coleccion-cabecera .nota-ejemplo {
+    margin-top: 4px;
+    color: #7895a6;
+    font-size: 10px;
+}
+
+.enlace-explorar,
+.pie-destino a {
+    color: #00d2d3;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.enlace-explorar:hover,
+.pie-destino a:hover {
+    color: #78ffff;
+}
+
+.barra-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 28px 0 24px;
+}
+
+.filtros-tipo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filtro-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid #164158;
+    border-radius: 999px;
+    background: transparent;
+    color: #b0c3ce;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.filtro-tipo span {
+    color: #7596a8;
+    font-size: 11px;
+}
+
+.filtro-tipo:hover,
+.filtro-tipo.activo {
+    border-color: #00d2d3;
+    background: #00d2d3;
+    color: #04101e;
+}
+
+.filtro-tipo.activo span,
+.filtro-tipo:hover span {
+    color: #04101e;
+}
+
+.busqueda-guardados {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: min(100%, 330px);
+    padding: 0 15px;
+    border: 1px solid #164158;
+    border-radius: 999px;
+    background: #061e31;
+    color: #8ba9ba;
+}
+
+.icono-busqueda {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.busqueda-guardados input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+}
+
+.busqueda-guardados input::placeholder {
+    color: #7895a6;
+}
+
+.busqueda-guardados:focus-within {
+    border-color: #00d2d3;
+    box-shadow: 0 0 0 3px rgba(0, 210, 211, 0.1);
+}
+
+.rejilla-guardados {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-guardado {
+    overflow: hidden;
+    border: 1px solid rgba(10, 77, 109, 0.8);
+    border-radius: 18px;
+    background: #061e31;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta-guardado:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 210, 211, 0.55);
+}
+
+.tarjeta-vuelo {
+    padding: 20px;
+}
+
+.tarjeta-vuelo-cabecera,
+.ruta-vuelo,
+.detalles-vuelo,
+.tarjeta-pie,
+.destino-titulo,
+.pie-destino {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tipo-elemento {
+    color: #00d2d3;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.tipo-elemento > span {
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+.quitar-guardado {
+    display: grid;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid rgba(122, 176, 196, 0.2);
+    border-radius: 50%;
+    background: rgba(2, 15, 30, 0.72);
+    color: #bfd0d8;
+    cursor: pointer;
+    font: inherit;
+    font-size: 21px;
+    line-height: 1;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.quitar-guardado:hover {
+    background: #ff647c;
+    color: #04101e;
+}
+
+.ruta-vuelo {
+    gap: 12px;
+    margin: 27px 0 21px;
+}
+
+.ruta-vuelo > div:not(.linea-ruta) {
+    display: grid;
+    gap: 5px;
+}
+
+.ruta-vuelo strong {
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.ruta-vuelo span {
+    color: #9db4c2;
+    font-size: 11px;
+}
+
+.ruta-vuelo .alinear-derecha {
+    text-align: right;
+}
+
+.linea-ruta {
+    position: relative;
+    display: grid;
+    flex: 1;
+    place-items: center;
+    min-width: 35px;
+    border-top: 1px dashed #286078;
+}
+
+.linea-ruta span {
+    position: absolute;
+    top: -12px;
+    padding: 0 7px;
+    background: #061e31;
+    color: #00d2d3;
+    font-size: 16px;
+}
+
+.linea-ruta.con-escala::before {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9db4c2;
+    content: "";
+}
+
+.detalles-vuelo {
+    padding: 12px 0;
+    border-top: 1px solid rgba(122, 176, 196, 0.13);
+    border-bottom: 1px solid rgba(122, 176, 196, 0.13);
+    color: #a9bdc8;
+    font-size: 11px;
+}
+
+.detalle-icono {
+    margin-right: 5px;
+    color: #00d2d3;
+}
+
+.vuelo-directo,
+.vuelo-escala {
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: rgba(0, 210, 211, 0.1);
+    color: #00d2d3;
+    font-size: 10px;
+}
+
+.vuelo-escala {
+    background: rgba(249, 191, 92, 0.12);
+    color: #f9bf5c;
+}
+
+.tarjeta-pie {
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.tarjeta-pie > div {
+    display: grid;
+    gap: 5px;
+}
+
+.dato-secundario {
+    color: #91aab8;
+    font-size: 10px;
+}
+
+.precio-guardado {
+    color: #fff;
+    font-size: 16px;
+}
+
+.precio-guardado small {
+    color: #9db4c2;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.boton-tarjeta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 13px;
+    border: 1px solid rgba(0, 210, 211, 0.45);
+    border-radius: 999px;
+    background: rgba(0, 210, 211, 0.1);
+    color: #00d2d3;
+    cursor: pointer;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-tarjeta:hover {
+    background: #00d2d3;
+    color: #04101e;
+}
+
+.tarjeta-destino {
     display: flex;
     flex-direction: column;
 }
 
-.etiqueta {
-    color: #00d2d3; /* Color Cyan */
-    font-size: 12px;
+.imagen-destino {
+    position: relative;
+    min-height: 190px;
+    background-color: #10334a;
+    background-position: center;
+    background-size: cover;
+}
+
+.imagen-destino::after {
+    position: absolute;
+    inset: 40% 0 0;
+    background: linear-gradient(transparent, rgba(2, 15, 30, 0.45));
+    content: "";
+    pointer-events: none;
+}
+
+.imagen-paris {
+    background-image: url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80");
+}
+
+.imagen-tokio {
+    background-image: url("https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80");
+}
+
+.imagen-cartagena {
+    background-image: url("https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80");
+}
+
+.etiqueta-destino {
+    position: absolute;
+    z-index: 1;
+    bottom: 14px;
+    left: 16px;
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 999px;
+    background: rgba(2, 15, 30, 0.68);
+    color: #fff;
+    font-size: 9px;
     font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-.titulo-pagina {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 42px;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 5px;
+.boton-sobre-imagen {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 12px;
+    border: 0;
 }
 
-.subtitulo-pagina {
-    color: rgb(122, 176, 196);
-    font-size: 14px;
-}
-
-/* Botones de Filtro */
-.filtros {
+.contenido-destino {
     display: flex;
-    gap: 12px;
+    flex: 1;
+    flex-direction: column;
+    padding: 17px;
 }
 
-.btn-filtro {
-    background: transparent;
-    color: rgb(122, 176, 196);
-    border: 1px solid rgba(122, 176, 196, 0.4);
-    padding: 8px 20px;
-    border-radius: 20px; /* Bordes muy redondeados como en la imagen */
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.destino-titulo h3 {
+    margin-top: 6px;
+    color: #fff;
+    font-size: 17px;
 }
 
-.btn-filtro:hover {
-    border-color: #00d2d3;
+.icono-destino {
     color: #00d2d3;
+    font-size: 25px;
 }
 
-/* Botón activo (Todos) */
-.btn-filtro.activo {
-    border-color: #00d2d3;
-    color: #00d2d3;
-    background-color: rgba(0, 210, 211, 0.1);
+.contenido-destino > p {
+    min-height: 42px;
+    margin: 12px 0 18px;
+    color: #9db4c2;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
-/* ===== ESTADO VACÍO (Cuando no hay vuelos) ===== */
-.estado-vacio {
+.pie-destino {
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(122, 176, 196, 0.13);
+}
+
+.pie-destino > span {
+    color: #8ba9ba;
+    font-size: 10px;
+}
+
+.pie-destino strong {
+    display: block;
+    margin-top: 4px;
+    color: #fff;
+    font-size: 11px;
+}
+
+.sin-resultados {
     display: flex;
+    min-height: 300px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 36px;
     text-align: center;
-    padding: 60px 20px;
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px dashed rgba(122, 176, 196, 0.3);
-    border-radius: 15px;
-    margin-top: 20px;
 }
 
-.icono-vacio {
-    width: 50px;
-    height: 50px;
-    color: rgb(122, 176, 196);
-    margin-bottom: 20px;
+.sin-resultados[hidden] {
+    display: none;
 }
 
-.estado-vacio h2 {
-    color: #ffffff;
-    font-size: 20px;
-    margin-bottom: 10px;
+.sin-resultados > span {
+    color: #00d2d3;
+    font-size: 38px;
 }
 
-.estado-vacio p {
-    color: rgb(122, 176, 196);
-    font-size: 14px;
-    margin-bottom: 25px;
-    max-width: 400px;
+.sin-resultados h3 {
+    margin-top: 12px;
+    color: #fff;
+    font-size: 21px;
 }
 
-.btn-explorar {
-    background-color: #00d2d3;
-    color: rgb(4, 16, 30);
-    padding: 10px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+.sin-resultados p {
+    max-width: 430px;
+    margin: 8px 0 18px;
+    color: #9db4c2;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
-.btn-explorar:hover {
-    background-color: rgb(0, 184, 185);
+.texto-oculto {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.filtro-tipo:focus-visible,
+.quitar-guardado:focus-visible,
+.boton-tarjeta:focus-visible,
+.enlace-explorar:focus-visible,
+.pie-destino a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .rejilla-guardados {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1100px) {
+    .contenedor {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px 5%;
+    }
+
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: clamp(12px, 5vw, 30px);
+        padding: 0;
+    }
+
+    .nav-menu li a {
+        font-size: 12px;
+    }
+
+    .sesion {
+        gap: 10px;
+    }
+
+    .Inicio_sesion {
+        font-size: 12px;
+    }
+
+    .btn-crear {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .guardados-page {
+        padding-top: 40px;
+    }
+
+    .guardados-hero {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+        padding-bottom: 38px;
+    }
+
+    .resumen-guardados {
+        min-width: 0;
+    }
+
+    .barra-filtros {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .busqueda-guardados {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .rejilla-guardados {
+        grid-template-columns: 1fr;
+    }
+
+    .coleccion-cabecera {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .coleccion-cabecera .enlace-explorar {
+        margin-top: 2px;
+    }
+
+    .filtros-tipo {
+        gap: 6px;
+    }
+
+    .filtro-tipo {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .guardados-hero h2 {
+        font-size: 42px;
+    }
+
+    .tarjeta-vuelo {
+        padding: 17px;
+    }
 }

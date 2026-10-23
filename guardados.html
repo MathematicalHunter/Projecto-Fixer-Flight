@@ -10,7 +10,7 @@
 <body>
    <header class="contenedor"> 
         
-        <a href="#" class="logo-link">
+        <a href="index.html" class="logo-link">
             <div class="logo">
                 <div class="icon-circle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="avion-icon">
@@ -42,42 +42,152 @@
       
    </header>
 
-  <main class="main-guardados">
-    <div class="guardados-container">
-        
-        <!-- Cabecera de la sección -->
-        <div class="guardados-header">
-            <div class="header-texto">
-                <span class="etiqueta">FAVORITOS</span>
-                <h1 class="titulo-pagina">Vuelos guardados</h1>
-                <p class="subtitulo-pagina">0 vuelos en tu lista</p> 
+   <main class="guardados-page">
+        <section class="guardados-hero" aria-labelledby="titulo-guardados">
+            <div class="guardados-hero-texto">
+                <span class="etiqueta-seccion">TU ESPACIO PERSONAL</span>
+                <h2 id="titulo-guardados">Tus favoritos,<br><span>siempre a mano.</span></h2>
+                <p>Vuelve a tus vuelos y destinos guardados para comparar opciones y organizar tu próximo viaje.</p>
+            </div>
+            <div class="resumen-guardados" aria-label="Resumen de elementos guardados">
+                <span class="resumen-icono" aria-hidden="true">♡</span>
+                <div>
+                    <strong id="totalGuardados">6</strong>
+                    <span>opciones para tu próximo viaje</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="coleccion-guardados" aria-labelledby="titulo-coleccion">
+            <div class="coleccion-cabecera">
+                <div>
+                    <span class="etiqueta-seccion">TU COLECCIÓN</span>
+                    <h2 id="titulo-coleccion">Elementos guardados</h2>
+                    <p id="estadoResultados" aria-live="polite">Se muestran 6 opciones de ejemplo.</p>
+                    <p class="nota-ejemplo">Contenido de demostración; los vuelos y precios no son ofertas en tiempo real.</p>
+                </div>
+                <a class="enlace-explorar" href="index.html">Explorar vuelos <span aria-hidden="true">→</span></a>
             </div>
 
-            <!-- Botones de filtro -->
-            <div class="filtros">
-                <button class="btn-filtro activo">Todos</button>
-                <button class="btn-filtro">Economy</button>
-                <button class="btn-filtro">Business</button>
-            </div>
-        </div>
-
-        <!-- Contenedor donde irán las tarjetas de vuelos -->
-        <div class="lista-vuelos" id="contenedor-vuelos">
-            
-            
-            <div class="estado-vacio">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono-vacio"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
-                <h2>Aún no tienes vuelos guardados</h2>
-                <p>Explora nuestros destinos y guarda tus vuelos favoritos para compararlos más tarde.</p>
-                <a href="index.html" class="btn-explorar">Buscar vuelos</a>
+            <div class="barra-filtros">
+                <div class="filtros-tipo" role="group" aria-label="Filtrar elementos guardados">
+                    <button class="filtro-tipo activo" type="button" data-filtro="todos" aria-pressed="true">Todos <span>6</span></button>
+                    <button class="filtro-tipo" type="button" data-filtro="vuelo" aria-pressed="false">Vuelos <span>3</span></button>
+                    <button class="filtro-tipo" type="button" data-filtro="destino" aria-pressed="false">Destinos <span>3</span></button>
+                </div>
+                <label class="busqueda-guardados">
+                    <span class="icono-busqueda" aria-hidden="true">⌕</span>
+                    <span class="texto-oculto">Buscar entre tus guardados</span>
+                    <input id="buscarGuardados" type="search" placeholder="Busca ciudad, aerolínea o fecha">
+                </label>
             </div>
 
-        
+            <div class="rejilla-guardados" id="rejillaGuardados">
+                <article class="tarjeta-guardado tarjeta-vuelo" data-tipo="vuelo" data-busqueda="bogota madrid iberia 18 noviembre 2026 vuelo directo">
+                    <div class="tarjeta-vuelo-cabecera">
+                        <span class="tipo-elemento"><span aria-hidden="true">✈</span> VUELO</span>
+                        <button class="quitar-guardado" type="button" aria-label="Quitar vuelo de Bogotá a Madrid de guardados">×</button>
+                    </div>
+                    <div class="ruta-vuelo">
+                        <div><strong>BOG</strong><span>Bogotá</span></div>
+                        <div class="linea-ruta" aria-label="Vuelo directo"><span>✈</span></div>
+                        <div class="alinear-derecha"><strong>MAD</strong><span>Madrid</span></div>
+                    </div>
+                    <div class="detalles-vuelo">
+                        <span><span class="detalle-icono" aria-hidden="true">◷</span> 18 nov · 10:35</span>
+                        <span class="vuelo-directo">Directo</span>
+                    </div>
+                    <div class="tarjeta-pie">
+                        <div><span class="dato-secundario">Iberia · solo ida</span><strong class="precio-guardado">$ 2.480.000 <small>COP</small></strong></div>
+                        <a href="index.html" class="boton-tarjeta">Ver vuelos</a>
+                    </div>
+                </article>
 
-        </div>
+                <article class="tarjeta-guardado tarjeta-vuelo" data-tipo="vuelo" data-busqueda="medellin cartagena avianca 4 diciembre 2026 vuelo directo">
+                    <div class="tarjeta-vuelo-cabecera">
+                        <span class="tipo-elemento"><span aria-hidden="true">✈</span> VUELO</span>
+                        <button class="quitar-guardado" type="button" aria-label="Quitar vuelo de Medellín a Cartagena de guardados">×</button>
+                    </div>
+                    <div class="ruta-vuelo">
+                        <div><strong>MDE</strong><span>Medellín</span></div>
+                        <div class="linea-ruta" aria-label="Vuelo directo"><span>✈</span></div>
+                        <div class="alinear-derecha"><strong>CTG</strong><span>Cartagena</span></div>
+                    </div>
+                    <div class="detalles-vuelo">
+                        <span><span class="detalle-icono" aria-hidden="true">◷</span> 4 dic · 08:20</span>
+                        <span class="vuelo-directo">Directo</span>
+                    </div>
+                    <div class="tarjeta-pie">
+                        <div><span class="dato-secundario">Avianca · solo ida</span><strong class="precio-guardado">$ 289.900 <small>COP</small></strong></div>
+                        <a href="index.html" class="boton-tarjeta">Ver vuelos</a>
+                    </div>
+                </article>
 
-    </div>
-</main>
+                <article class="tarjeta-guardado tarjeta-vuelo" data-tipo="vuelo" data-busqueda="bogota buenos aires latam 12 enero 2027 escala vuelo">
+                    <div class="tarjeta-vuelo-cabecera">
+                        <span class="tipo-elemento"><span aria-hidden="true">✈</span> VUELO</span>
+                        <button class="quitar-guardado" type="button" aria-label="Quitar vuelo de Bogotá a Buenos Aires de guardados">×</button>
+                    </div>
+                    <div class="ruta-vuelo">
+                        <div><strong>BOG</strong><span>Bogotá</span></div>
+                        <div class="linea-ruta con-escala" aria-label="Vuelo con escala"><span>✈</span></div>
+                        <div class="alinear-derecha"><strong>EZE</strong><span>Buenos Aires</span></div>
+                    </div>
+                    <div class="detalles-vuelo">
+                        <span><span class="detalle-icono" aria-hidden="true">◷</span> 12 ene · 21:10</span>
+                        <span class="vuelo-escala">1 escala</span>
+                    </div>
+                    <div class="tarjeta-pie">
+                        <div><span class="dato-secundario">LATAM · solo ida</span><strong class="precio-guardado">$ 1.360.000 <small>COP</small></strong></div>
+                        <a href="index.html" class="boton-tarjeta">Ver vuelos</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta-guardado tarjeta-destino" data-tipo="destino" data-busqueda="paris francia europa torre eiffel museos">
+                    <div class="imagen-destino imagen-paris" role="img" aria-label="Vista de París y la Torre Eiffel">
+                        <span class="etiqueta-destino">EUROPA</span>
+                        <button class="quitar-guardado boton-sobre-imagen" type="button" aria-label="Quitar París de destinos guardados">×</button>
+                    </div>
+                    <div class="contenido-destino">
+                        <div class="destino-titulo"><div><span class="tipo-elemento">DESTINO</span><h3>París, Francia</h3></div><span class="icono-destino" aria-hidden="true">⌖</span></div>
+                        <p>Arte, cafés y paseos junto al Sena. Una ciudad para descubrir a tu ritmo.</p>
+                        <div class="pie-destino"><span>Mejor época <strong>Abr – Jun</strong></span><a href="destinos.html">Explorar <span aria-hidden="true">→</span></a></div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-guardado tarjeta-destino" data-tipo="destino" data-busqueda="tokio japon asia shibuya templos gastronomia">
+                    <div class="imagen-destino imagen-tokio" role="img" aria-label="Calles iluminadas de Tokio">
+                        <span class="etiqueta-destino">ASIA</span>
+                        <button class="quitar-guardado boton-sobre-imagen" type="button" aria-label="Quitar Tokio de destinos guardados">×</button>
+                    </div>
+                    <div class="contenido-destino">
+                        <div class="destino-titulo"><div><span class="tipo-elemento">DESTINO</span><h3>Tokio, Japón</h3></div><span class="icono-destino" aria-hidden="true">⌖</span></div>
+                        <p>Tradición y vida urbana se encuentran en cada barrio de la capital japonesa.</p>
+                        <div class="pie-destino"><span>Mejor época <strong>Mar – May</strong></span><a href="destinos.html">Explorar <span aria-hidden="true">→</span></a></div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-guardado tarjeta-destino" data-tipo="destino" data-busqueda="cartagena colombia caribe playas centro historico">
+                    <div class="imagen-destino imagen-cartagena" role="img" aria-label="Casas coloridas del centro histórico de Cartagena">
+                        <span class="etiqueta-destino">CARIBE</span>
+                        <button class="quitar-guardado boton-sobre-imagen" type="button" aria-label="Quitar Cartagena de destinos guardados">×</button>
+                    </div>
+                    <div class="contenido-destino">
+                        <div class="destino-titulo"><div><span class="tipo-elemento">DESTINO</span><h3>Cartagena, Colombia</h3></div><span class="icono-destino" aria-hidden="true">⌖</span></div>
+                        <p>Murallas, calles llenas de color y atardeceres caribeños a pocos pasos.</p>
+                        <div class="pie-destino"><span>Mejor época <strong>Dic – Abr</strong></span><a href="destinos.html">Explorar <span aria-hidden="true">→</span></a></div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="sin-resultados" id="sinResultados" hidden>
+                <span aria-hidden="true">♡</span>
+                <h3>No encontramos opciones</h3>
+                <p>Prueba con otra búsqueda o explora destinos y vuelos para guardar nuevas opciones.</p>
+                <a href="destinos.html" class="boton-tarjeta">Descubrir destinos</a>
+            </div>
+        </section>
+   </main>
 
     <footer class="footer">
     <div class="footer-contenido">
@@ -123,7 +233,6 @@
     </div>
 </footer>
    
-
- 
+    <script src="scripts/guardados.js"></script>
 </body>
 </html>
