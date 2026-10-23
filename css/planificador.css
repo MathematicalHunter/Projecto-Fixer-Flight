@@ -1,149 +1,6 @@
-/* Importar fuente para que se vea igual que la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
-/* CONVINE EL CODIGO DE CSS CON EL DARKEY */
 
-.contenedor {
-    background-color: rgb(4, 16, 30); 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 0 5%;
-    height: 80px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* LOGO DE FIXER FLIHGT*/
-.logo-link {
-    text-decoration: none; 
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-}
-/* CIRCULO LOGO BARRA SUPERIOR*/
-.icon-circle {
-    width: 45px; 
-    height: 45px;
-    background-color: #00d2d3; 
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* AVION ADENTRO DEL CIRCULO */
-.avion-icon {
-    width: 22px;
-    height: 22px;
-    color: #000000; 
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.main-title {
-    margin: 0;
-    font-size: 22px; 
-    font-weight: 800;
-    line-height: 1;
-}
-
-.text-white { color: #ffffff; }
-.text-cyan { color: #00d2d3; }
-
-.subtitle {
-    margin: 2px 0 0 0;
-    font-size: 8px; 
-    font-weight: 700;
-    color: rgb(122, 176, 196); 
-    letter-spacing: 1.5px;
-}
-
-/* 
-   ESTILOS DEL MENÚ DE NAVEGACIÓN
-   */
-.nav-menu {
-    display: flex;
-    gap: 30px; /* Reemplaza el padding del li por "gap", es más limpio */
-}
-
-.nav-menu li {
-    list-style: none;
-}
-
-.nav-menu li a {
-    color: rgb(122, 176, 196);
-    text-decoration: none; 
-    font-size: 15px;
-    font-weight: 600;
-    transition: color 0.3s ease; 
-}
-
-
-.nav-menu li a:hover {
-    color: #00d2d3;
-}
-.nav-menu :active {
-     transform: scale(0.90);
-}
-
-/* 
-   ESTILOS DE LA SECCIÓN DE SESIÓN
-    */
-.sesion {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.Inicio_sesion {
-    color: rgb(122, 176, 196);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-.Inicio_sesion:active{
-
-     transform: scale(0.90);
-}
-
-.Inicio_sesion:hover {
-    color: #ffffff;
-}
-
-/* Estilo del botón Crear Cuenta */
-.btn-crear {
-    background-color: #000000; 
-    color: rgb(4, 16, 30); 
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px; 
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-}
-
-.btn-crear:hover {
-    background-color: #00b8b9; 
-}
-
-.btn-crear:active {
-    transform: scale(0.95); 
-}
-
-
-
-
-/* CODIGO MIO DE CSS */
-
-
-/* BORDE DE LA PÁGINA */
+/* CONFIGURACION GENERAL */
 
 *{
     margin: 0;
@@ -151,15 +8,125 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #020f1d;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+
+.contenedor{
+    background-color: rgb(4, 16, 30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 80px;
+}
+
+/* LOGO */
+
+.logo-link{
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-circle{
+    width: 45px;
+    height: 45px;
+    background-color: #00d2d3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avion-icon{
+    width: 22px;
+    height: 22px;
+    color: black;
+}
+
+.main-title{
+    font-size: 22px;
+}
+
+.text-white{
+    color: white;
+}
+
+.text-cyan{
+    color: #00d2d3;
+}
+
+.subtitle{
+    font-size: 8px;
+    color: rgb(122,176,196);
+}
+
+/* MENU */
+
+.nav-menu{
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu li{
+    list-style: none;
+}
+
+.nav-menu a{
+    text-decoration: none;
+    color: rgb(122,176,196);
+    font-size: 15px;
+}
+
+.nav-menu a:hover{
+    color: #00d2d3;
+}
+
+/* SESION */
+
+.sesion{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Inicio_sesion{
+    text-decoration: none;
+    color: rgb(122,176,196);
+}
+
+.Inicio_sesion:hover{
+    color: white;
+}
+
+.btn-crear{
+    background-color: #00d2d3;
+    color: rgb(4,16,30);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-crear:hover{
+    background-color: #00b8b9;
+}
+
 /* PLANIFICADOR */
 
 .planificador{
-    background-color: #020f1d;
-    min-height: calc(100vh - 100px);
     padding: 50px 8%;
 }
 
- /*TITULO*/
+/* TITULO */
 
 .hero-planificador{
     margin-bottom: 40px;
@@ -168,22 +135,19 @@
 .titulo-seccion{
     color: #00d2d3;
     font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1px;
 }
 
 .titulo-principal{
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 65px;
     font-style: italic;
-    font-weight: 700;
     margin-top: 10px;
 }
 
 .descripcion{
-    color: rgb(122, 176, 196);
-    font-size: 20px;
+    color: rgb(122,176,196);
     margin-top: 10px;
+    font-size: 20px;
 }
 
 /* CONTENEDOR PRINCIPAL */
@@ -191,7 +155,6 @@
 .contenido-planificador{
     display: flex;
     gap: 25px;
-    margin-top: 40px;
 }
 
 /* PANEL IZQUIERDO */
@@ -202,23 +165,21 @@
 
 .crear-viaje{
     display: flex;
-    align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
 .input-viaje{
     flex: 1;
-    background-color: #062136;
+    padding: 15px;
+    border-radius: 15px;
     border: 1px solid #0a4d6d;
-    border-radius: 18px;
-    padding: 16px;
+    background-color: #062136;
     color: white;
-    outline: none;
 }
 
 .input-viaje::placeholder{
-    color: rgb(122, 176, 196);
+    color: rgb(122,176,196);
 }
 
 .btn-agregar{
@@ -227,15 +188,8 @@
     border-radius: 50%;
     border: none;
     background-color: #00d2d3;
-    color: black;
-    font-size: 24px;
-    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-agregar:hover{
-    background-color: #00b8b9;
+    font-size: 24px;
 }
 
 #contenedorViajes{
@@ -260,36 +214,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
 }
 
 #destinoSeleccionado{
-    color: white;
     font-size: 35px;
+    color: white;
 }
 
 #informacionViaje{
-    color: rgb(122, 176, 196);
-    margin-top: 8px;
+    color: rgb(122,176,196);
+    margin-top: 10px;
 }
 
 #estadoViaje{
     background-color: #063c54;
     color: #00d2d3;
-    padding: 8px 18px;
+    padding: 8px 15px;
     border-radius: 15px;
-    font-size: 13px;
-    font-weight: 700;
 }
 
-/* TARJETAS INTERNAS */
+/* TARJETAS */
 
 .recorrido,
 .vuelos,
 .fechas,
 .resumen{
     background-color: #0c2b3e;
-    border-radius: 18px;
+    border-radius: 15px;
     padding: 20px;
     margin-top: 20px;
 }
@@ -299,28 +250,27 @@
 .fechas h3,
 .resumen h3{
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* MENSAJES VACIOS */
+/* MENSAJES */
 
 .mensaje-vacio{
-    color: rgb(122, 176, 196);
+    color: rgb(122,176,196);
     text-align: center;
-    padding: 30px;
-    font-size: 14px;
+    padding: 25px;
 }
 
 /* RECORRIDO */
 
 #rutaViaje{
-    min-height: 150px;
+    min-height: 120px;
 }
 
 /* VUELOS */
 
 #contenedorVuelos{
-    min-height: 100px;
+    min-height: 80px;
 }
 
 /* FECHAS */
@@ -333,47 +283,29 @@
 .datos-fecha div{
     flex: 1;
     background-color: #10334a;
-    padding: 18px;
-    border-radius: 15px;
+    border-radius: 10px;
+    padding: 15px;
 }
 
 .datos-fecha p{
-    color: rgb(122, 176, 196);
+    color: rgb(122,176,196);
     margin-bottom: 8px;
 }
 
 .datos-fecha span{
     color: white;
     font-size: 20px;
-    font-weight: 700;
 }
 
 /* RESUMEN */
 
 #resumenViaje{
-    color: rgb(122, 176, 196);
-    min-height: 80px;
-    line-height: 1.6;
-}
-
-/* SCROLL */
-
-::-webkit-scrollbar{
-    width: 8px;
-}
-
-::-webkit-scrollbar-track{
-    background-color: #02111f;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: #00d2d3;
-    border-radius: 10px;
+    color: rgb(122,176,196);
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 1000px){
+@media (max-width: 1000px){
 
     .contenido-planificador{
         flex-direction: column;
