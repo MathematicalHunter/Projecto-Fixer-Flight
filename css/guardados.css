@@ -1,5 +1,6 @@
 /* Importar fuente para que se vea igual que la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
 
 * {
     margin: 0;
@@ -249,4 +250,133 @@ main {
         grid-template-columns: 1fr;
         text-align: center;
     }
+}
+
+/* ===== ESTILOS DE LA PÁGINA DE GUARDADOS ===== */
+
+.main-guardados {
+    padding: 40px 5%;
+    background-color: rgb(2, 15, 30);
+    min-height: calc(100vh - 80px); /* Ajuste para que el footer quede abajo */
+}
+
+.guardados-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabecera (Título y Botones) */
+.guardados-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.etiqueta {
+    color: #00d2d3; /* Color Cyan */
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.titulo-pagina {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 42px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitulo-pagina {
+    color: rgb(122, 176, 196);
+    font-size: 14px;
+}
+
+/* Botones de Filtro */
+.filtros {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-filtro {
+    background: transparent;
+    color: rgb(122, 176, 196);
+    border: 1px solid rgba(122, 176, 196, 0.4);
+    padding: 8px 20px;
+    border-radius: 20px; /* Bordes muy redondeados como en la imagen */
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+    border-color: #00d2d3;
+    color: #00d2d3;
+}
+
+/* Botón activo (Todos) */
+.btn-filtro.activo {
+    border-color: #00d2d3;
+    color: #00d2d3;
+    background-color: rgba(0, 210, 211, 0.1);
+}
+
+/* ===== ESTADO VACÍO (Cuando no hay vuelos) ===== */
+.estado-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(122, 176, 196, 0.3);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.icono-vacio {
+    width: 50px;
+    height: 50px;
+    color: rgb(122, 176, 196);
+    margin-bottom: 20px;
+}
+
+.estado-vacio h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.estado-vacio p {
+    color: rgb(122, 176, 196);
+    font-size: 14px;
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.btn-explorar {
+    background-color: #00d2d3;
+    color: rgb(4, 16, 30);
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explorar:hover {
+    background-color: rgb(0, 184, 185);
 }
