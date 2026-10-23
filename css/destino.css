@@ -92,7 +92,24 @@
 
 .nav-menu li a:hover {
     color: #00d2d3;
+    
 }
+
+.nav-menu li a.active {
+    color: #00d2d3;
+    position: relative;
+}
+.nav-menu li a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00d2d3;
+    border-radius: 2px;
+}
+
 .nav-menu :active {
      transform: scale(0.90);
 }
@@ -143,3 +160,7 @@
     transform: scale(0.95); 
 }
 
+main{
+
+    background-color: #000000;
+}
