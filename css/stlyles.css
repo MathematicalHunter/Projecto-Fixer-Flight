@@ -16,6 +16,7 @@
     padding: 0 5%;
     height: 80px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0, 210, 211, 0.2);
 }
 
 /* LOGO DE FIXER FLIHGT*/
@@ -161,7 +162,7 @@
 
 /* ===== CONTENIDO PRINCIPAL ===== */
 main {
-    background-color: #000000;
+    background-color: rgb(2, 15, 30);
     min-height: calc(100vh - 80px);
     color: #ffffff;
     padding: 40px 5%;
