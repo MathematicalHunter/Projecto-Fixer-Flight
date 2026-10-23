@@ -1,0 +1,269 @@
+/* =========================
+   PLANIFICADOR
+========================= */
+
+.planificador{
+    background-color: #020f1d;
+    min-height: calc(100vh - 80px);
+    padding: 50px 8%;
+}
+
+/* =========================
+   TITULO
+========================= */
+
+.hero-planificador{
+    margin-bottom: 40px;
+}
+
+.titulo-seccion{
+    color: #00d2d3;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.titulo-principal{
+    color: white;
+    font-size: 65px;
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.descripcion{
+    color: rgb(122, 176, 196);
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.contenido-planificador{
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
+
+.lista-viajes{
+    width: 35%;
+}
+
+.crear-viaje{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-viaje{
+    flex: 1;
+    background-color: #062136;
+    border: 1px solid #0a4d6d;
+    border-radius: 18px;
+    padding: 16px;
+    color: white;
+    outline: none;
+}
+
+.input-viaje::placeholder{
+    color: rgb(122, 176, 196);
+}
+
+.btn-agregar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: #00d2d3;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-agregar:hover{
+    background-color: #00b8b9;
+}
+
+#contenedorViajes{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* =========================
+   PANEL DERECHO
+========================= */
+
+.detalle-viaje{
+    flex: 1;
+    background-color: #041b2d;
+    border: 1px solid #0a4d6d;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+.cabecera-detalle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#destinoSeleccionado{
+    color: white;
+    font-size: 35px;
+}
+
+#informacionViaje{
+    color: rgb(122, 176, 196);
+    margin-top: 8px;
+}
+
+#estadoViaje{
+    background-color: #063c54;
+    color: #00d2d3;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================
+   TARJETAS INTERNAS
+========================= */
+
+.recorrido,
+.vuelos,
+.fechas,
+.resumen{
+    background-color: #0c2b3e;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.recorrido h3,
+.vuelos h3,
+.fechas h3,
+.resumen h3{
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   MENSAJES VACIOS
+========================= */
+
+.mensaje-vacio{
+    color: rgb(122, 176, 196);
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* =========================
+   RECORRIDO
+========================= */
+
+#rutaViaje{
+    min-height: 150px;
+}
+
+/* =========================
+   VUELOS
+========================= */
+
+#contenedorVuelos{
+    min-height: 100px;
+}
+
+/* =========================
+   FECHAS
+========================= */
+
+.datos-fecha{
+    display: flex;
+    gap: 15px;
+}
+
+.datos-fecha div{
+    flex: 1;
+    background-color: #10334a;
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.datos-fecha p{
+    color: rgb(122, 176, 196);
+    margin-bottom: 8px;
+}
+
+.datos-fecha span{
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* =========================
+   RESUMEN
+========================= */
+
+#resumenViaje{
+    color: rgb(122, 176, 196);
+    min-height: 80px;
+    line-height: 1.6;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #02111f;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #00d2d3;
+    border-radius: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1000px){
+
+    .contenido-planificador{
+        flex-direction: column;
+    }
+
+    .lista-viajes{
+        width: 100%;
+    }
+
+    .datos-fecha{
+        flex-direction: column;
+    }
+
+    .titulo-principal{
+        font-size: 45px;
+    }
+
+}
