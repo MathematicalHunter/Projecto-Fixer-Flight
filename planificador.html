@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/planificador.css"> 
     <link rel="stylesheet" href="css/stlyles.css">
 </head>
-<body>
+<body data-page="planificador">
 
      <!-- TITULO CODIGO DE PRUEBA PARA EL PLANIFICADOR xd -->
       
@@ -24,7 +24,7 @@
                     <h1 class="main-title">
                         <span class="text-white">Fixer</span><span class="text-cyan">Flight</span>
                     </h1>
-                    <p class="subtitle">COMPARADOR DE VUELOS</p>
+                    <p class="subtitle">LIBRETA DE VUELOS</p>
                 </div>
             </div>
         </a>
@@ -38,10 +38,7 @@
         </ul>
 
         
-        <div class="sesion">
-            <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
-        </div>
+        <div class="sesion"><span>Bloc local · Sin cuenta</span></div>
  
    </header>
     
@@ -61,7 +58,7 @@
         </h2>
 
         <p class="descripcion">
-            Vista de planificación. Las funciones para crear viajes y agregar vuelos estarán disponibles próximamente.
+        Organiza trayectos, fechas, presupuesto y actividades como notas. No se reservan ni se agendan vuelos.
         </p>
 
     </section>
@@ -71,24 +68,26 @@
         <!-- PANEL IZQUIERDO -->
         <aside class="lista-viajes">
 
-            <div class="crear-viaje">
-
-                <input
-                    type="text"
-                    placeholder="Nombre del viaje..."
-                    id="nombreViaje"
-                    class="input-viaje">
-
-                <button class="btn-agregar" type="button" disabled>
-                    +
-                </button>
-
-            </div>
-
-            <!-- Espacio vacío reservado para los viajes del usuario. -->
-            <div id="contenedorViajes">
-
-            </div>
+            <form class="crear-viaje" id="formularioViaje">
+                <label for="nombreViaje">Nombre del viaje</label>
+                <input type="text" placeholder="Ej. Vacaciones en Roma" id="nombreViaje" name="nombre" class="input-viaje" required maxlength="80">
+                <label for="origenViaje">Origen</label>
+                <input type="text" placeholder="Bogotá" id="origenViaje" name="origen" class="input-viaje" value="Bogotá" required>
+                <label for="destinoViaje">Destino</label>
+                <input type="text" placeholder="Ciudad de destino" id="destinoViaje" name="destino" class="input-viaje" required>
+                <label for="salidaViaje">Salida</label>
+                <input type="date" id="salidaViaje" name="salida" class="input-viaje">
+                <label for="regresoViaje">Regreso</label>
+                <input type="date" id="regresoViaje" name="regreso" class="input-viaje">
+                <label for="viajerosViaje">Viajeros</label>
+                <input type="number" id="viajerosViaje" name="viajeros" class="input-viaje" min="1" max="9" value="1" required>
+                <label for="presupuestoViaje">Presupuesto estimado (COP)</label>
+                <input type="number" id="presupuestoViaje" name="presupuesto" class="input-viaje" min="0" step="10000" placeholder="Opcional">
+                <label for="comentariosViaje">Notas</label>
+                <textarea id="comentariosViaje" name="comentarios" class="input-viaje" maxlength="500" placeholder="Preferencias o recordatorios"></textarea>
+                <button class="btn-agregar" type="submit" aria-label="Crear viaje">+</button>
+            </form>
+            <div id="contenedorViajes" aria-live="polite"></div>
 
         </aside>
 
@@ -106,7 +105,7 @@
 
                     <!-- CIUDAD Y FECHAS -->
                     <p id="informacionViaje">
-                        Todavia no has agregado ningun viaje.
+                        Todavía no has agregado ningún viaje.
                     </p>
 
                 </div>
@@ -122,14 +121,12 @@
             <section class="recorrido">
 
                 <h3>
-                    Recorrido estimado
+                    Distancia estimada
                 </h3>
 
                 <div id="rutaViaje">
 
-                    <p class="mensaje-vacio">
-                        El recorrido aparecera aqui cuando selecciones vuelos.
-                    </p>
+                    <p class="mensaje-vacio">El recorrido se mostrará al seleccionar un viaje.</p>
 
                 </div>
 
@@ -139,14 +136,12 @@
             <section class="vuelos">
 
                 <h3>
-                    Vuelos en este viaje
+                    Nota de vuelo
                 </h3>
 
-                <!-- Aquí se podrán comparar los vuelos elegidos desde Destinos. -->
                 <div id="contenedorVuelos">
-
                     <p class="mensaje-vacio">
-                        No hay vuelos agregados.
+                        Guarda este trayecto en tu libreta personal.
                     </p>
 
                 </div>
@@ -206,12 +201,27 @@
                 <div id="resumenViaje">
 
                     <p class="mensaje-vacio">
-                        Cuando el usuario seleccione origen, destino, fechas y vuelos,
-                        toda la informacion aparecera en esta seccion.
+                        Selecciona un viaje para ver su resumen.
                     </p>
 
                 </div>
 
+            </section>
+
+            <section class="actividades">
+                <h3>Itinerario por días</h3>
+                <form class="formulario-actividad" id="formularioActividad">
+                    <label for="fechaActividad">Fecha</label>
+                    <input type="date" id="fechaActividad" name="fecha" required>
+                    <label for="nombreActividad">Actividad o lugar</label>
+                    <input type="text" id="nombreActividad" name="actividad" maxlength="120" placeholder="Ej. Visitar el museo" required>
+                    <label for="lugarActividad">Notas (opcional)</label>
+                    <input type="text" id="lugarActividad" name="lugar" maxlength="160" placeholder="Dirección o detalles">
+                    <button class="boton-punto" type="submit">Agregar al itinerario</button>
+                </form>
+                <div id="listaActividades" aria-live="polite">
+                    <p class="mensaje-vacio">Selecciona un viaje para organizar sus actividades.</p>
+                </div>
             </section>
 
         </section>
@@ -225,13 +235,13 @@
 
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
+            <p>Herramientas gratuitas para explorar destinos y organizar tus viajes.</p>
         </div>
 
         <div class="footer-col">
             <h4>Contacto</h4>
             <ul>
-                <li>📧 <a href="mailto:contacto@fixerflight.com">jenogueral25@ul.edu.co</a></li>
+                <li>📧 <a href="mailto:jenogueral25@ul.edu.co">jenogueral25@ul.edu.co</a></li>
                 <li>📞 <a href="tel:+573001234567">+57 300 123 4567</a></li>
                 <li>📍 Barranquilla, Colombia</li>
                 <li>🕐 Lun - Vie: 8:00 a.m. - 6:00 p.m.</li>
@@ -249,11 +259,9 @@
         </div>
 
         <div class="footer-col">
-            <h4>Síguenos</h4>
+            <h4>Recursos</h4>
             <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">X (Twitter)</a></li>
+                <li><a href="APIS_Y_SERVICIOS.txt">APIs y servicios</a></li>
             </ul>
         </div>
 
@@ -263,9 +271,6 @@
         <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
     </div>
 </footer>
-   
-
-
-
+<script src="scripts/app.js" defer></script>
 </body>
 </html>

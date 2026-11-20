@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/destino.css">
 </head>
 
-<body>
+<body data-page="destinos">
    <header class="contenedor"> 
         
         <a href="index.html" class="logo-link">
@@ -21,7 +21,7 @@
                     <h1 class="main-title">
                         <span class="text-white">Fixer</span><span class="text-cyan">Flight</span>
                     </h1>
-                    <p class="subtitle">COMPARADOR DE VUELOS</p>
+                    <p class="subtitle">LIBRETA DE VUELOS</p>
                 </div>
             </div>
         </a>
@@ -35,114 +35,37 @@
         </ul>
 
         
-        <div class="sesion">
-            <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
-        </div>
+        <div class="sesion"><span>Bloc local · Sin cuenta</span></div>
       
    </header>
  <main>
     <section class="seccion-destinos">
-        <span class="etiqueta-destinos">GUIA TURISTICA</span>
-        <h2>Puntos de interés para tu viaje</h2>
-        <p class="introduccion-destinos">Explora lugares recomendados y compara dos opciones de vuelo para cada destino. Los precios son valores de ejemplo para este proyecto.</p>
+        <span class="etiqueta-destinos">GUÍA TURÍSTICA</span>
+        <h2>Explora países y destinos</h2>
+        <p class="introduccion-destinos">Busca por país o región, consulta información general y el clima, y guarda tus destinos favoritos.</p>
 
-        <div class="lista-destinos">
-            <!-- París: precios y horarios de vuelos definidos como ejemplo. -->
-            <article class="tarjeta-destino">
-                <h3>París, Francia</h3>
-                <p class="descripcion-destino">Puntos de interés: Torre Eiffel y Museo del Louvre.</p>
-                <p class="dato-punto">Mejor época: abril a junio</p>
-                <button class="boton-punto" type="button" disabled>Guardar destino</button>
-                <h4>Vuelos desde Bogotá</h4>
-                <div class="opcion-vuelo">
-                    <div><strong>Air France</strong><span>Directo · 10 h 15 min</span></div>
-                    <strong class="precio-vuelo">$ 3.250.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-                <div class="opcion-vuelo">
-                    <div><strong>Iberia</strong><span>1 escala · 13 h 40 min</span></div>
-                    <strong class="precio-vuelo">$ 2.780.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-            </article>
-
-            <!-- Roma: dos alternativas de vuelo para comparar más adelante. -->
-            <article class="tarjeta-destino">
-                <h3>Roma, Italia</h3>
-                <p class="descripcion-destino">Punto de interés: Coliseo Romano.</p>
-                <p class="dato-punto">Mejor época: abril a junio</p>
-                <button class="boton-punto" type="button" disabled>Guardar destino</button>
-                <h4>Vuelos desde Bogotá</h4>
-                <div class="opcion-vuelo">
-                    <div><strong>ITA Airways</strong><span>1 escala · 14 h 10 min</span></div>
-                    <strong class="precio-vuelo">$ 3.100.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-                <div class="opcion-vuelo">
-                    <div><strong>Air Europa</strong><span>1 escala · 15 h 25 min</span></div>
-                    <strong class="precio-vuelo">$ 2.690.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-            </article>
-
-            <!-- Cartagena: la entrada a la ciudad amurallada es libre; vuelos de ejemplo. -->
-            <article class="tarjeta-destino">
-                <h3>Cartagena, Colombia</h3>
-                <p class="descripcion-destino">Punto de interés: Ciudad Amurallada (entrada libre).</p>
-                <p class="dato-punto">Mejor época: diciembre a abril</p>
-                <button class="boton-punto" type="button" disabled>Guardar destino</button>
-                <h4>Vuelos desde Bogotá</h4>
-                <div class="opcion-vuelo">
-                    <div><strong>Avianca</strong><span>Directo · 1 h 35 min</span></div>
-                    <strong class="precio-vuelo">$ 320.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-                <div class="opcion-vuelo">
-                    <div><strong>LATAM</strong><span>Directo · 1 h 30 min</span></div>
-                    <strong class="precio-vuelo">$ 285.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-            </article>
-
-            <!-- Río de Janeiro: precios estimados para visitar el Cristo Redentor. -->
-            <article class="tarjeta-destino">
-                <h3>Río de Janeiro, Brasil</h3>
-                <p class="descripcion-destino">Punto de interés: Cristo Redentor.</p>
-                <p class="dato-punto">Mejor época: mayo a octubre</p>
-                <button class="boton-punto" type="button" disabled>Guardar destino</button>
-                <h4>Vuelos desde Bogotá</h4>
-                <div class="opcion-vuelo">
-                    <div><strong>GOL</strong><span>Directo · 6 h 15 min</span></div>
-                    <strong class="precio-vuelo">$ 1.850.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-                <div class="opcion-vuelo">
-                    <div><strong>LATAM</strong><span>1 escala · 8 h 20 min</span></div>
-                    <strong class="precio-vuelo">$ 1.620.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-            </article>
-
-            <!-- Tokio: dos opciones de vuelo para conocer el cruce de Shibuya. -->
-            <article class="tarjeta-destino">
-                <h3>Tokio, Japón</h3>
-                <p class="descripcion-destino">Punto de interés: Cruce de Shibuya (entrada libre).</p>
-                <p class="dato-punto">Mejor época: marzo a mayo</p>
-                <button class="boton-punto" type="button" disabled>Guardar destino</button>
-                <h4>Vuelos desde Bogotá</h4>
-                <div class="opcion-vuelo">
-                    <div><strong>Japan Airlines</strong><span>1 escala · 22 h 30 min</span></div>
-                    <strong class="precio-vuelo">$ 5.200.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-                <div class="opcion-vuelo">
-                    <div><strong>United Airlines</strong><span>1 escala · 24 h 05 min</span></div>
-                    <strong class="precio-vuelo">$ 4.750.000 COP</strong>
-                    <button class="boton-punto" type="button" disabled>Agregar al planificador</button>
-                </div>
-            </article>
-        </div>
+        <form class="busqueda-destino" id="formularioDestino">
+            <label for="buscarDestino">País</label>
+            <div class="busqueda-destino-campos">
+                <input id="buscarDestino" name="destino" type="search" placeholder="Ej. Colombia, Japón o Spain" autocomplete="off">
+                <label for="filtroRegion">Región</label>
+                <select id="filtroRegion" name="region">
+                    <option value="">Todas las regiones</option>
+                    <option value="Africa">África</option>
+                    <option value="Americas">América</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europa</option>
+                    <option value="Oceania">Oceanía</option>
+                </select>
+            </div>
+        </form>
+        <p class="estado-api" id="estadoDestinos" role="status" aria-live="polite">Cargando países…</p>
+        <div class="lista-destinos" id="listaDestinos"></div>
+        <dialog class="modal-destino" id="modalDestino" aria-labelledby="tituloDetalleDestino">
+            <button class="cerrar-modal" id="cerrarModalDestino" type="button" aria-label="Cerrar detalles">×</button>
+            <div id="detalleDestino"></div>
+        </dialog>
+        <p class="atribucion-api">Países: CountriesNow y Banco Mundial · Clima y geocodificación: Open-Meteo · Información geográfica: Wikipedia.</p>
     </section>
  </main>
 
@@ -151,13 +74,13 @@
 
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
+            <p>Herramientas gratuitas para explorar destinos y organizar tus viajes.</p>
         </div>
 
         <div class="footer-col">
             <h4>Contacto</h4>
             <ul>
-                <li>📧 <a href="mailto:contacto@fixerflight.com">jenogueral25@ul.edu.co</a></li>
+                <li>📧 <a href="mailto:jenogueral25@ul.edu.co">jenogueral25@ul.edu.co</a></li>
                 <li>📞 <a href="tel:+573001234567">+57 300 123 4567</a></li>
                 <li>📍 Barranquilla, Colombia</li>
                 <li>🕐 Lun - Vie: 8:00 a.m. - 6:00 p.m.</li>
@@ -175,11 +98,9 @@
         </div>
 
         <div class="footer-col">
-            <h4>Síguenos</h4>
+            <h4>Recursos</h4>
             <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">X (Twitter)</a></li>
+                <li><a href="APIS_Y_SERVICIOS.txt">APIs y servicios</a></li>
             </ul>
         </div>
 
@@ -192,5 +113,6 @@
 
 
 </footer>
+<script src="scripts/app.js" defer></script>
 </body>
 </html>

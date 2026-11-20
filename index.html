@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/stlyles.css">
 </head>
 
-<body>
+<body data-page="inicio">
    <!-- Encabezado compartido: contiene el logo, la navegación y los enlaces de cuenta. -->
    <header class="contenedor"> 
         
@@ -31,7 +31,7 @@
                     <h1 class="main-title">
                         <span class="text-white">Fixer</span><span class="text-cyan">Flight</span>
                     </h1>
-                    <p class="subtitle">COMPARADOR DE VUELOS</p>
+                    <p class="subtitle">LIBRETA DE VUELOS</p>
                 </div>
             </div>
         </a>
@@ -46,33 +46,26 @@
         </ul>
 
         <!-- Accesos a las pantallas visuales de inicio de sesión y creación de cuenta. -->
-        <div class="sesion">
-            <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
-        </div>
+        <div class="sesion"><span>Bloc local · Sin cuenta</span></div>
       
    </header>
 
    <!-- main agrupa el contenido principal y diferente de la navegación y el pie de página. -->
   <main>
 
-    <!-- Etiqueta visible que aclara que esta versión es una demostración visual. -->
-    <h4>PROTOTIPO VISUAL</h4>
+    <h4>PLANIFICA TU PRÓXIMO VIAJE</h4>
     
-    <h1>Compara opciones para tu próximo viaje</h1>
-    <p>Explora destinos y vuelos de ejemplo. La búsqueda se habilitará en una próxima versión.</p>
+    <h1>Planifica tu próximo vuelo</h1>
+    <p>Usa FixerFlight como una libreta para organizar trayectos, fechas y notas. No reservamos ni agendamos vuelos.</p>
     
-    <!-- Panel visual de búsqueda. Sus campos se pueden ver, pero no buscan vuelos todavía. -->
-    <div class="busqueda-vuelos">
+    <form class="busqueda-vuelos" id="formularioVuelos">
         <!-- Agrupa el tipo de viaje y las preferencias generales del pasajero. -->
         <div class="busqueda-opciones">
-            <!-- Los radio buttons permiten seleccionar una sola modalidad de viaje en este prototipo. -->
             <div class="tipo-viaje" role="group" aria-label="Tipo de viaje">
                 <label><input type="radio" name="tipo-viaje" value="ida-vuelta" checked><span>Ida y vuelta</span></label>
                 <label><input type="radio" name="tipo-viaje" value="solo-ida"><span>Solo ida</span></label>
-                <label><input type="radio" name="tipo-viaje" value="multidestino"><span>Multidestino</span></label>
             </div>
-            <!-- Preferencias: un menú de clase y una cantidad de pasajeros de ejemplo. -->
+            <!-- Preferencias de clase y cantidad de pasajeros. -->
             <div class="preferencias-viaje">
                 <!-- Esta etiqueta ayuda a lectores de pantalla aunque no se vea en el diseño. -->
                 <label class="visualmente-oculto" for="clase-vuelo">Clase</label>
@@ -84,48 +77,53 @@
                     <option>First Class</option>
                 </select>
                 <label class="visualmente-oculto" for="pasajeros">Pasajeros</label>
-                <!-- min y max limitan el número visible; value muestra 1 como valor inicial. -->
                 <input id="pasajeros" name="pasajeros" type="number" min="1" max="9" value="1">
             </div>
         </div>
 
-        <!-- Campos para escribir ciudades y elegir fechas; aún no están conectados a una búsqueda. -->
+        <!-- Los datos describen un plan personal, no una reserva. -->
         <div class="campos-vuelo">
             <div class="campo-vuelo">
                 <!-- for conecta el texto de la etiqueta con el campo que tiene el mismo id. -->
                 <label for="origen">Origen</label>
-                <input id="origen" name="origen" type="text" placeholder="✈  Ciudad o aeropuerto">
+                <input id="origen" name="origen" type="text" placeholder="✈  Ciudad o aeropuerto" value="Bogotá" required>
             </div>
             <div class="campo-vuelo">
                 <label for="destino-vuelo">Destino</label>
-                <input id="destino-vuelo" name="destino" type="text" placeholder="📍  ¿A dónde vas?">
+                <input id="destino-vuelo" name="destino" type="text" placeholder="📍  ¿A dónde vas?" required>
             </div>
             <div class="campo-vuelo">
                 <label for="fecha-ida">Ida</label>
-                <input id="fecha-ida" name="fecha-ida" type="date">
+                <input id="fecha-ida" name="fecha-ida" type="date" required>
             </div>
             <div class="campo-vuelo">
                 <label for="fecha-vuelta">Vuelta</label>
                 <input id="fecha-vuelta" name="fecha-vuelta" type="date">
             </div>
+            <div class="campo-vuelo campo-notas-vuelo">
+                <label for="notas-vuelo">Notas del trayecto</label>
+                <textarea id="notas-vuelo" name="notas" maxlength="500" placeholder="Escalas por investigar, preferencias o recordatorios"></textarea>
+            </div>
         </div>
-        <!-- disabled desactiva el botón para dejar claro que la búsqueda todavía no funciona. -->
-        <button class="boton-buscar" type="button" disabled>⌕ Búsqueda próximamente</button>
-    </div>
+        <button class="boton-buscar" type="submit">⌕ Calcular trayecto con Open-Meteo</button>
+        <button class="boton-guardar-busqueda" id="guardarBusquedaVuelo" type="button">♡ Guardar en mi libreta</button>
+        <p class="nota-busqueda" id="mensajeBusqueda" role="status" aria-live="polite">La distancia y el tiempo son estimaciones geográficas, no horarios ni disponibilidad de vuelos.</p>
+        <div class="resultado-trayecto" id="resultadoTrayecto" aria-live="polite"></div>
+    </form>
 
     <!-- Datos escritos directamente en HTML para resumir el contenido de esta maqueta. -->
     <ul class="estadisticas-viaje" aria-label="Datos de FixerFlight">
-        <li><strong>5</strong><span>Destinos</span></li>
-        <li><strong>10</strong><span>Vuelos de ejemplo</span></li>
-        <li><strong>0</strong><span>Acciones activas</span></li>
-        <li><strong>24/7</strong><span>Disponibilidad</span></li>
+        <li><strong>Clima</strong><span>Pronóstico actual</span></li>
+        <li><strong>Lugares</strong><span>Puntos de interés</span></li>
+        <li><strong>Viajes</strong><span>Guardados en tu dispositivo</span></li>
+        <li><strong>Notas</strong><span>Planes en tu navegador</span></li>
     </ul>
 
     <!-- section crea un bloque temático; aria-labelledby lo relaciona con su título. -->
     <section class="seccion-destinos" aria-labelledby="titulo-destinos">
         <div class="encabezado-seccion">
             <h2 id="titulo-destinos">Destinos para inspirarte</h2>
-            <p>Descubrí algunos de los lugares favoritos de nuestra comunidad.</p>
+            <p>Explora destinos populares y guárdalos en tu libreta de viaje.</p>
         </div>
         <!-- Cada article es una tarjeta independiente con una foto y el nombre de un destino. -->
         <div class="bloques-destinos">
@@ -158,28 +156,28 @@
         <!-- Estas tarjetas son textos informativos, no botones ni funciones activas. -->
         <div class="bloques-ventajas">
             <article class="tarjeta-ventaja">
-                <h3>Comparación real</h3>
-                <p>Una vista visual para revisar opciones de vuelos de ejemplo.</p>
+                <h3>Planifica tu trayecto</h3>
+                <p>Estima la distancia entre ciudades y consulta el clima del destino.</p>
             </article>
             <article class="tarjeta-ventaja">
-                <h3>Guardá lo que te gusta</h3>
-                <p>La pantalla de Guardados está preparada para una próxima versión.</p>
+                <h3>Guarda lo que te gusta</h3>
+                <p>Guarda destinos y consúltalos desde cualquier página de este dispositivo.</p>
             </article>
             <article class="tarjeta-ventaja">
                 <h3>Planificación integrada</h3>
-                <p>El planificador muestra dónde se organizarán tus viajes.</p>
+                <p>Organiza destinos y fechas; tus planes se conservan en este navegador.</p>
             </article>
             <article class="tarjeta-ventaja">
                 <h3>Guía de destinos</h3>
-                <p>Conoce puntos de interés de diferentes ciudades.</p>
+                <p>Explora el clima y artículos geográficos de distintas ciudades.</p>
             </article>
             <article class="tarjeta-ventaja">
-                <h3>Precios de ejemplo</h3>
-                <p>Las tarifas mostradas en Destinos son valores de referencia para el proyecto.</p>
+                <h3>Sin tarifas inventadas</h3>
+                <p>Registra trayectos, fechas y notas en tu libreta personal. No reservamos vuelos.</p>
             </article>
             <article class="tarjeta-ventaja">
-                <h3>Funciones próximas</h3>
-                <p>Las acciones de búsqueda, guardado y planificación se conectarán más adelante.</p>
+                <h3>APIs abiertas</h3>
+                <p>Consulta información geográfica, clima y artículos de destinos con servicios públicos.</p>
             </article>
         </div>
     </section>
@@ -193,14 +191,14 @@
         <!-- Primera columna del pie: nombre y breve descripción. -->
         <div class="footer-col">
             <h3>Fixer<span class="text-cyan">Flight</span></h3>
-            <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
+            <p>Herramientas gratuitas para explorar destinos y organizar tus viajes.</p>
         </div>
 
         <!-- Datos de contacto. mailto: abre el programa de correo y tel: permite llamar desde el celular. -->
         <div class="footer-col">
             <h4>Contacto</h4>
             <ul>
-                <li>📧 <a href="mailto:contacto@fixerflight.com">jenogueral25@ul.edu.co</a></li>
+                <li>📧 <a href="mailto:jenogueral25@ul.edu.co">jenogueral25@ul.edu.co</a></li>
                 <li>📞 <a href="tel:+573001234567">+57 300 123 4567</a></li>
                 <li>📍 Barranquilla, Colombia</li>
                 <li>🕐 Lun - Vie: 8:00 a.m. - 6:00 p.m.</li>
@@ -218,13 +216,10 @@
             </ul>
         </div>
 
-        <!-- Enlaces sociales de muestra; # no lleva todavía a una cuenta externa. -->
         <div class="footer-col">
-            <h4>Síguenos</h4>
+            <h4>Recursos</h4>
             <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">X (Twitter)</a></li>
+                <li><a href="APIS_Y_SERVICIOS.txt">APIs y servicios</a></li>
             </ul>
         </div>
 
@@ -235,6 +230,6 @@
         <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
     </div>
 </footer>
-    
+<script src="scripts/app.js" defer></script>
 </body>
 </html>

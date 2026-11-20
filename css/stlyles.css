@@ -266,7 +266,8 @@ main > p {
 
 .preferencias-viaje select,
 .preferencias-viaje input,
-.campo-vuelo input {
+.campo-vuelo input,
+.campo-vuelo textarea {
     min-width: 0;
     min-height: 46px;
     padding: 0 14px;
@@ -309,8 +310,31 @@ main > p {
     width: 100%;
 }
 
-.campo-vuelo input::placeholder {
+.campo-vuelo input::placeholder,
+.campo-vuelo textarea::placeholder {
     color: rgb(145, 180, 195);
+}
+
+.campo-vuelo textarea {
+    width: 100%;
+    min-height: 78px;
+    padding: 12px 14px;
+    resize: vertical;
+}
+
+.campo-notas-vuelo {
+    grid-column: 1 / -1;
+}
+
+.resultado-trayecto {
+    margin-top: 16px;
+    color: #00d2d3;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.resultado-trayecto:empty {
+    display: none;
 }
 
 .boton-buscar {
@@ -326,12 +350,59 @@ main > p {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+.boton-guardar-busqueda {
+    display: block;
+    margin: 12px auto 0;
+    padding: 10px 16px;
+    border: 1px solid #00d2d3;
+    border-radius: 999px;
+    background: transparent;
+    color: #00d2d3;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boton-guardar-busqueda:hover,
+.boton-guardar-busqueda:focus-visible {
+    background: #00d2d3;
+    color: #04101e;
+}
+
 .boton-buscar:hover {
     background-color: #00b8b9;
 }
 
 .boton-buscar:active {
     transform: scale(0.99);
+}
+
+.nota-busqueda {
+    margin: 12px 0 0;
+    color: rgb(166, 195, 207);
+    font-size: 12px;
+}
+
+.notificacion-app {
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 20px;
+    max-width: min(420px, calc(100vw - 40px));
+    padding: 14px 18px;
+    border: 1px solid #00d2d3;
+    border-radius: 10px;
+    background: #041b2d;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.notificacion-app[hidden] {
+    display: none;
+}
+
+.notificacion-app.notificacion-error {
+    border-color: #ff9a9a;
 }
 
 .estadisticas-viaje {

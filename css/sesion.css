@@ -122,10 +122,17 @@
 
 /* Botón ancho completo */
 .btn-full {
+    display: block;
     width: 100%;
     padding: 14px;
     font-size: 16px;
     margin-top: 10px;
+    border-radius: 8px;
+    background-color: #00d2d3;
+    color: rgb(4, 16, 30);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 /* Enlace para registrarse abajo */

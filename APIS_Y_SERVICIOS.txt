@@ -1,0 +1,191 @@
+APIs Y SERVICIOS DE FIXERFLIGHT
+===============================
+
+PROPÓSITO
+---------
+
+FixerFlight funciona como una libreta personal para organizar trayectos,
+destinos, fechas y notas. Las APIs añaden información pública para ayudar a
+planificar; no agendan ni reservan vuelos. No se usa Google Maps ni se consulta
+disponibilidad o precios de aerolíneas.
+
+Todos los servicios consultados desde la app son públicos y no requieren una
+clave para las solicitudes implementadas. Requieren conexión a Internet y pueden
+tener límites, cambiar o no estar disponibles temporalmente.
+
+1. OPEN-METEO GEOCODING API
+---------------------------
+
+Documentación:
+https://open-meteo.com/en/docs/geocoding-api
+Endpoint usado:
+https://geocoding-api.open-meteo.com/v1/search
+Parámetros usados:
+name=<ciudad>&count=1&language=es&format=json
+
+Qué hace en FixerFlight:
+- Convierte nombres de ciudades y capitales en coordenadas geográficas.
+- Permite buscar información de la capital al abrir el detalle de un país.
+- Calcula la distancia aproximada en línea recta entre origen y destino.
+
+Por qué se eligió:
+- Es gratuita para el uso implementado y no requiere una API key.
+- Permite consultas desde el navegador y ofrece resultados de ciudades y
+  coordenadas necesarios para las estimaciones del bloc de planificación.
+- Evita depender de una plataforma de mapas o de un servicio de vuelos.
+
+La estimación de distancia se calcula en la aplicación con las coordenadas
+devueltas por esta API. No representa una ruta de vuelo, escala, horario,
+disponibilidad ni tiempo garantizado por una aerolínea.
+
+2. OPEN-METEO FORECAST API
+--------------------------
+
+Documentación:
+https://open-meteo.com/en/docs
+Endpoint usado:
+https://api.open-meteo.com/v1/forecast
+Parámetros usados:
+- En trayectos: latitude, longitude, current=temperature_2m,weather_code y
+  timezone=auto.
+- En detalles de países: current=temperature_2m,relative_humidity_2m,
+  wind_speed_10m,weather_code y daily=temperature_2m_max,temperature_2m_min,
+  precipitation_probability_max,weather_code; forecast_days=3 y timezone=auto.
+  Se usan las coordenadas de la capital.
+
+Qué hace en FixerFlight:
+- Muestra condiciones meteorológicas actuales para el destino elegido.
+- En el detalle de países, presenta el clima actual y un pronóstico corto.
+
+Por qué se eligió:
+- Es gratuita para las consultas implementadas y no requiere clave.
+- Usa las coordenadas obtenidas con Open-Meteo Geocoding, así se mantiene una
+  integración pequeña para la información de ubicación y clima.
+- El clima puede ser un dato útil al guardar notas de un destino.
+
+El pronóstico es orientativo y puede cambiar. Consulta una fuente meteorológica
+actualizada antes del viaje.
+
+3. COUNTRIESNOW
+---------------
+
+Sitio y documentación del servicio:
+https://countriesnow.space/
+Endpoint usado:
+https://countriesnow.space/api/v0.1/countries/info?returns=currency,flag,iso2,iso3,capital
+
+Qué hace en FixerFlight:
+- Aporta banderas, capitales y monedas para enriquecer el catálogo de países.
+
+Por qué se eligió:
+- El endpoint empleado es público y no necesita credenciales.
+- Complementa la información geográfica y regional disponible en World Bank.
+- Da a las tarjetas de destinos información práctica sin configurar un servidor
+  propio.
+
+Los campos disponibles pueden variar por país; la interfaz contempla datos no
+disponibles y utiliza la capital alternativa del Banco Mundial cuando existe.
+
+4. WORLD BANK API
+-----------------
+
+Documentación:
+https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation
+Endpoints usados:
+https://api.worldbank.org/v2/country?format=json&per_page=400
+https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=400&mrv=1
+
+Qué hace en FixerFlight:
+- Proporciona el catálogo de países, sus códigos ISO, región, capital y
+  coordenadas disponibles.
+- Aporta la población más reciente disponible del indicador SP.POP.TOTL.
+
+Por qué se eligió:
+- Es una fuente pública y gratuita que no requiere una clave para estas
+  consultas.
+- Ofrece regiones y códigos normalizados que permiten buscar y filtrar el
+  catálogo.
+- Su indicador de población complementa los datos de CountriesNow.
+
+El último dato publicado no necesariamente corresponde al año actual. Se muestra
+como referencia y no como una cifra en tiempo real.
+
+5. FLAGCDN
+----------
+
+Tipo de servicio: imágenes de banderas (no es una API de datos).
+URL usada como respaldo:
+https://flagcdn.com/w320/<código-ISO-2-en-minúsculas>.png
+
+Qué hace en FixerFlight:
+- Carga una imagen de bandera cuando CountriesNow no proporciona una.
+
+Por qué se eligió:
+- Es un recurso estático público y no requiere una clave para mostrar la imagen.
+- Permite conservar las tarjetas de destinos con bandera cuando falta el campo
+  en la fuente principal.
+
+Si un código no está soportado o el recurso no está disponible, la tarjeta
+oculta la imagen fallida y conserva el resto de la información del país.
+
+6. WIKIPEDIA GEOSEARCH API
+--------------------------
+
+Documentación:
+https://www.mediawiki.org/wiki/API:Geosearch
+Endpoint usado:
+https://es.wikipedia.org/w/api.php
+
+Qué hace en FixerFlight:
+- Busca artículos geográficos próximos a las coordenadas de la capital.
+- Muestra enlaces a esos artículos dentro del detalle del país.
+
+Por qué se eligió:
+- Es una API pública de consulta, disponible sin una clave para este uso.
+- Añade información geográfica de interés sin mantener una base de lugares
+  propia.
+- Sus resultados se presentan como enlaces externos y no como datos verificados
+  por FixerFlight.
+
+7. GOOGLE FONTS
+---------------
+
+Tipo de servicio: carga de tipografía desde CSS (no es una API de mapas).
+Recurso usado:
+https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap
+
+Qué hace en FixerFlight:
+- Carga la tipografía Montserrat para las páginas y conserva una alternativa
+  local del navegador si no hay conexión.
+
+Por qué se eligió:
+- Es una hoja de estilos pública sin clave y coincide con la identidad visual
+  existente del sitio.
+
+SERVICIOS QUE NO SE USAN
+------------------------
+
+- No se utiliza Google Maps ni otro servicio de mapas dentro de la interfaz.
+- No se utiliza una API de tarifas, disponibilidad, aerolíneas o reservas. Una
+  consulta de tarifas gratuitas que sea anónima y estable no forma parte de esta
+  implementación; por eso FixerFlight no muestra precios ni ofrece compra.
+- No se utiliza un servicio de autenticación. La aplicación no solicita
+  contraseñas ni ofrece cuentas.
+- localStorage del navegador guarda favoritos, planes, listas e itinerarios. Es
+  almacenamiento local, no una API remota, una cuenta, una sincronización ni una
+  copia de seguridad.
+
+CRITERIOS GENERALES DE SELECCIÓN
+-------------------------------
+
+Se prefirieron fuentes públicas que permiten las consultas necesarias sin
+credenciales ni un backend, para que el proyecto pueda ejecutarse como sitio
+estático. Se combinaron fuentes especializadas: Open-Meteo para geocodificación
+y clima; World Bank y CountriesNow para datos de países; Wikipedia para artículos
+geográficos. Así se evita guardar claves privadas en el navegador y se mantiene
+la funcionalidad de planificación sin fingir cotizaciones o reservas.
+
+Al desplegar el sitio, revisa las condiciones de uso y atribución vigentes de cada
+proveedor, además de sus límites de solicitudes. Las APIs son servicios de
+terceros y pueden cambiar o fallar; la aplicación debe seguir comunicando esos
+fallos sin inventar resultados.

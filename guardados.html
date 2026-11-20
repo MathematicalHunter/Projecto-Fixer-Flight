@@ -6,7 +6,7 @@
     <title>Guardados | FixerFlight</title>
     <link rel="stylesheet" href="css/guardados.css">
 </head>
-<body>
+<body data-page="guardados">
     <header class="contenedor">
         <a href="index.html" class="logo-link">
             <div class="logo">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="text-container">
                     <h1 class="main-title"><span class="text-white">Fixer</span><span class="text-cyan">Flight</span></h1>
-                    <p class="subtitle">COMPARADOR DE VUELOS</p>
+                    <p class="subtitle">LIBRETA DE VUELOS</p>
                 </div>
             </div>
         </a>
@@ -29,25 +29,38 @@
             <li><a href="guardados.html" class="active">Guardados</a></li>
         </ul>
 
-        <div class="sesion">
-            <a href="sesion.html" class="Inicio_sesion">Inicio De Sesión</a>
-            <a class="btn-crear" href="crear.html">Crear Cuenta</a>
-        </div>
+        <div class="sesion"><span>Bloc local · Sin cuenta</span></div>
     </header>
 
     <main>
         <section class="seccion-destinos">
             <span class="etiqueta-destinos">MIS LUGARES</span>
-            <h2>Destinos guardados</h2>
-            <p class="introduccion-destinos">Aquí aparecen los puntos de interés que guardes desde la página de Destinos.</p>
+            <h2>Mi libreta de viaje</h2>
+            <p class="introduccion-destinos">Organiza destinos favoritos, planes de vuelo y listas guardados en este dispositivo. No se realizan reservas.</p>
 
-            <!-- Este espacio queda vacío hasta implementar Guardados con JavaScript. -->
-            <p class="mensaje-vacio" id="mensajeVacio">
-                Aún no tienes lugares guardados. La opción para añadir destinos estará disponible en una próxima versión.
+            <h3 class="subtitulo-guardados">Destinos favoritos</h3>
+            <p class="mensaje-vacio" id="mensajeVacio" hidden>
+                Aún no tienes lugares guardados.
                 <a class="enlace-destinos" href="destinos.html">Ver puntos de interés</a>
             </p>
-            <!-- Contenedor vacío reservado para los destinos guardados. -->
             <div class="lista-destinos" id="listaGuardados"></div>
+
+            <section class="seccion-listas" aria-labelledby="tituloListas">
+                <h3 class="subtitulo-guardados" id="tituloListas">Mis listas</h3>
+                <form class="crear-lista" id="formularioLista">
+                    <label class="visualmente-oculto" for="nombreLista">Nombre de la nueva lista</label>
+                    <input id="nombreLista" name="nombre" type="text" maxlength="60" placeholder="Ej. Viaje de verano" required>
+                    <button class="boton-punto" type="submit">Crear lista</button>
+                </form>
+                <p class="estado-api" id="estadoListas" role="status" aria-live="polite"></p>
+                <div class="lista-destinos" id="contenedorListas"></div>
+            </section>
+
+            <section class="seccion-vuelos-guardados" aria-labelledby="tituloVuelosGuardados">
+                <h3 class="subtitulo-guardados" id="tituloVuelosGuardados">Planes de vuelo</h3>
+                <p class="mensaje-vacio" id="mensajeVuelosVacio" hidden>Aún no has guardado planes de vuelo.</p>
+                <div class="lista-destinos" id="listaVuelosGuardados"></div>
+            </section>
         </section>
     </main>
 
@@ -55,12 +68,12 @@
         <div class="footer-contenido">
             <div class="footer-col">
                 <h3>Fixer<span class="text-cyan">Flight</span></h3>
-                <p>Prototipo visual para explorar destinos y opciones de viaje.</p>
+                <p>Herramientas gratuitas para explorar destinos y organizar tus viajes.</p>
             </div>
             <div class="footer-col">
                 <h4>Contacto</h4>
                 <ul>
-                    <li>📧 <a href="mailto:contacto@fixerflight.com">jenogueral25@ul.edu.co</a></li>
+                    <li>📧 <a href="mailto:jenogueral25@ul.edu.co">jenogueral25@ul.edu.co</a></li>
                     <li>📞 <a href="tel:+573001234567">+57 300 123 4567</a></li>
                     <li>📍 Barranquilla, Colombia</li>
                     <li>🕐 Lun - Vie: 8:00 a.m. - 6:00 p.m.</li>
@@ -76,11 +89,9 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Síguenos</h4>
+                <h4>Recursos</h4>
                 <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">X (Twitter)</a></li>
+                    <li><a href="APIS_Y_SERVICIOS.txt">APIs y servicios</a></li>
                 </ul>
             </div>
         </div>
@@ -88,5 +99,6 @@
             <p>© 2026 FixerFlight. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="scripts/app.js" defer></script>
 </body>
 </html>

@@ -198,14 +198,21 @@
 }
 
 .crear-viaje{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
     margin-bottom: 20px;
 }
 
+.crear-viaje label {
+    grid-column: 1 / -1;
+    color: rgb(122, 176, 196);
+    font-size: 12px;
+    font-weight: 700;
+}
+
 .input-viaje{
-    flex: 1;
+    width: 100%;
     background-color: #062136;
     border: 1px solid #0a4d6d;
     border-radius: 18px;
@@ -214,11 +221,24 @@
     outline: none;
 }
 
+.input-viaje[type="date"],
+.input-viaje[type="number"] {
+    color-scheme: dark;
+}
+
+textarea.input-viaje {
+    min-height: 84px;
+    resize: vertical;
+}
+
 .input-viaje::placeholder{
     color: rgb(122, 176, 196);
 }
 
 .btn-agregar{
+    grid-column: 1;
+    justify-self: end;
+    margin-top: 5px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -244,6 +264,42 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.viaje-item {
+    display: flex;
+    gap: 8px;
+}
+
+.viaje-seleccionar,
+.viaje-eliminar {
+    border: 1px solid #0a4d6d;
+    border-radius: 10px;
+    background: #0c2b3e;
+    color: white;
+    cursor: pointer;
+    font: inherit;
+}
+
+.viaje-eliminar:hover {
+    border-color: #ff9a9a;
+}
+
+.viaje-seleccionar {
+    flex: 1;
+    padding: 13px;
+    text-align: left;
+}
+
+.viaje-seleccionar[aria-pressed="true"] {
+    border-color: #00d2d3;
+    color: #00d2d3;
+}
+
+.viaje-eliminar {
+    width: 42px;
+    color: #ff9a9a;
+    font-size: 22px;
 }
 
 /* PANEL DERECHO */
@@ -304,6 +360,85 @@
     margin-bottom: 20px;
 }
 
+.actividades {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 18px;
+    background-color: #0c2b3e;
+}
+
+.actividades h3 {
+    margin-bottom: 16px;
+    color: white;
+}
+
+.formulario-actividad {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.formulario-actividad label {
+    color: rgb(122, 176, 196);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.formulario-actividad input {
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #0a4d6d;
+    border-radius: 8px;
+    background: #10334a;
+    color: #ffffff;
+    font: inherit;
+}
+
+.formulario-actividad button {
+    grid-column: 1 / -1;
+}
+
+.formulario-actividad .boton-punto,
+.actividad-item .boton-punto {
+    padding: 10px 14px;
+    border: 1px solid #00d2d3;
+    border-radius: 8px;
+    background: transparent;
+    color: #00d2d3;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.formulario-actividad .boton-punto:hover,
+.actividad-item .boton-punto:hover {
+    background: #00d2d3;
+    color: #04101e;
+}
+
+.actividad-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid rgba(122, 176, 196, 0.18);
+    border-radius: 10px;
+}
+
+.actividad-item h4 {
+    flex: 1 1 220px;
+    color: #ffffff;
+}
+
+.actividad-item p {
+    flex: 1 1 150px;
+    color: rgb(122, 176, 196);
+}
+
 /* MENSAJES VACIOS */
 
 .mensaje-vacio{
@@ -317,6 +452,17 @@
 
 #rutaViaje{
     min-height: 150px;
+}
+
+#rutaViaje .estimacion-ruta {
+    margin-top: 12px;
+    color: rgb(166, 195, 207);
+    line-height: 1.6;
+}
+
+#rutaViaje > a {
+    color: #00d2d3;
+    line-height: 1.6;
 }
 
 /* VUELOS */
@@ -358,6 +504,22 @@
     line-height: 1.6;
 }
 
+#rutaViaje a,
+.enlace-vuelos {
+    color: #00d2d3;
+    line-height: 1.6;
+}
+
+.enlace-vuelos {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 9px;
+    background: #00d2d3;
+    color: #04101e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
 /* SCROLL */
 
 ::-webkit-scrollbar{
@@ -393,6 +555,16 @@
         font-size: 45px;
     }
 
+}
+
+@media(max-width: 600px) {
+    .formulario-actividad {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario-actividad button {
+        grid-column: 1;
+    }
 }
 /* ===== CONTENIDO PRINCIPAL ===== */
 main {

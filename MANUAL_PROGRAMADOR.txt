@@ -1,0 +1,179 @@
+MANUAL DEL PROGRAMADOR - FIXERFLIGHT
+====================================
+
+1. RESUMEN TÉCNICO
+------------------
+
+FixerFlight es un sitio estático desarrollado con HTML, CSS y JavaScript nativo.
+No requiere compilación, paquetes npm, servidor de aplicación ni claves privadas.
+Las páginas sirven como interfaz y scripts/app.js concentra la lógica común. El
+servidor HTTP local permite cargar recursos y consumir APIs desde el navegador;
+no se debe abrir el proyecto con file://.
+
+Para desarrollo local:
+  python -m http.server 8000
+
+Después abre http://localhost:8000. Requiere Python instalado y conexión a
+Internet para las consultas externas.
+
+2. ARCHIVOS Y RESPONSABILIDADES
+-------------------------------
+
+- index.html: formulario de planificación de trayectos y página de inicio.
+- destinos.html: catálogo, filtros, tarjetas de país y diálogo de detalle.
+- guardados.html: favoritos, listas personalizadas y planes de vuelo guardados.
+- planificador.html: creación/selección de viajes, resumen, fechas y actividades.
+- sesion.html y crear.html: páginas informativas; no implementan cuentas ni
+  solicitan credenciales.
+- scripts/app.js: funciones comunes, peticiones fetch, almacenamiento y
+  inicialización de las páginas.
+- css/stlyles.css: estilos compartidos y de Inicio (se conserva el nombre
+  existente, incluida su ortografía).
+- css/destino.css: Destinos, Guardados, tarjetas y dialogo.
+- css/planificador.css: Planificador, viajes y actividades.
+- css/sesion.css y css/crear.css: páginas informativas sobre el almacenamiento
+  local y el uso sin cuenta.
+- imagenes/: recursos visuales locales usados en Inicio.
+- capturas/: capturas reales de referencia para el manual de usuario.
+
+Cada página funcional declara data-page en el body. Al final de su HTML carga
+scripts/app.js con defer. El bloque de inicializacion lee data-page y llama solo
+al modulo de esa pagina: initFlightSearch, initDestinations,
+initSavedDestinations o initPlanner.
+
+3. BLOQUES PRINCIPALES DE scripts/app.js
+----------------------------------------
+
+3.1 Claves y configuración
+
+STORAGE_KEYS centraliza las claves persistidas:
+
+- fixerflight.savedDestinations: destinos favoritos.
+- fixerflight.trips: viajes e itinerarios.
+- fixerflight.savedFlights: consultas de vuelo guardadas.
+- fixerflight.lists: listas personalizadas.
+- fixerflight.countryCache: último catálogo recibido.
+
+Las constantes de las URLs de CountriesNow y World Bank especifican los campos
+y el formato consultados. Las peticiones se realizan directamente desde el
+navegador; no se deben incluir secretos ni credenciales en este archivo.
+
+3.2 Lectura y escritura local
+
+readCollection(key) lee JSON de localStorage y verifica que el valor sea una
+lista. writeCollection(key, value) serializa y guarda los datos. Ambas funciones
+registran errores y notifican al usuario en lugar de simular un guardado exitoso.
+makeId(prefix) genera ids para nuevos elementos. El almacenamiento local no
+proporciona sincronización, control de acceso ni copia de seguridad.
+
+3.3 Peticiones y datos de destinos
+
+fetchJson(url) realiza fetch y rechaza respuestas HTTP no exitosas.
+loadCountries() consulta en paralelo:
+
+- CountriesNow: banderas, capitales y monedas.
+- World Bank: países, códigos, regiones y coordenadas.
+- World Bank indicador SP.POP.TOTL: población más reciente disponible.
+
+Las respuestas se combinan usando códigos ISO. normalizeRegion y regionCode
+normalizan las regiones del filtro; buildCountryCard genera tarjetas con
+elementos DOM y textContent, evitando insertar datos externos como HTML.
+Cuando falla la carga, initDestinations conserva el catálogo local previo si
+existe y presenta un estado legible.
+
+3.4 Detalle geográfico y clima
+
+showCountryDetails construye el diálogo de país. loadCountryWeather llama a
+Open-Meteo Geocoding para localizar la capital y Forecast para condiciones
+actuales y tres días. showNearbyPlaces consulta Wikipedia Geosearch y crea
+enlaces a artículos geográficos. No se integra un servicio de mapas.
+weatherDescription traduce los códigos meteorológicos comunes.
+
+3.5 Favoritos y listas
+
+toggleSavedDestination agrega o quita destinos evitando duplicados. Las vistas
+de Destinos y Guardados se actualizan con los datos de localStorage. En
+Guardados, initSavedDestinations crea listas y renderCustomLists muestra sus
+elementos. addItemToList valida la lista y evita duplicar el mismo tipo/id.
+
+Una entrada de lista tiene la forma:
+  { type, id, label, item }
+
+type es destination o flight; item guarda los datos de referencia local de ese
+destino o búsqueda.
+
+3.6 Planes de vuelo
+
+initFlightSearch valida los campos y consulta Open-Meteo Geocoding para obtener
+coordenadas y calcular una distancia aérea orientativa. También solicita el
+clima actual del destino. La clave fixerflight.savedFlights conserva origen,
+destino, fechas, viajeros, clase, notas y, si se consultó, la estimación. No se
+buscan tarifas ni horarios ni se crean reservas. describeFlight y
+buildSavedFlightCard muestran y eliminan apuntes locales. El enlace Editar plan
+carga el registro por su id en el fragmento de la URL; guardar reemplaza ese
+mismo registro, conserva su fecha de creación y rechaza duplicados de otros
+planes. Un fragmento mal formado genera un aviso en vez de interrumpir la página.
+
+3.7 Viajes, recorrido e itinerario
+
+initPlanner mantiene viajes seleccionados y vuelve a leer los datos antes de
+escribir. addTrip crea viajes desde Destinos/Guardados. renderTripDetails
+actualiza recorrido, notas del trayecto, fechas y resumen; tripDuration calcula días
+calendario inclusivos.
+
+getCoordinates usa Open-Meteo Geocoding. calculateAirDistance aplica la fórmula
+de Haversine a dos coordenadas; renderRouteEstimate estima tiempo a 800 km/h y
+descarta resultados si el usuario ya seleccionó otro viaje. Es una estimación
+orientativa de distancia aérea/tiempo, no una ruta real ni un horario.
+
+Las actividades se almacenan dentro del viaje. El formulario limita la fecha al
+intervalo elegido; el manejador de submit vuelve a validar el rango, persiste
+la actividad y permite retirarla sin afectar otros viajes.
+
+4. SERVICIOS EXTERNOS Y LÍMITES
+-------------------------------
+
+- CountriesNow:
+  https://countriesnow.space/api/v0.1/countries/info
+- World Bank países:
+  https://api.worldbank.org/v2/country
+- World Bank población:
+  https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL
+- Open-Meteo geocoding:
+  https://geocoding-api.open-meteo.com/v1/search
+- Open-Meteo forecast:
+  https://api.open-meteo.com/v1/forecast
+- Wikipedia Geosearch:
+  https://es.wikipedia.org/w/api.php
+- FlagCDN aporta una imagen alternativa para banderas no disponibles en
+  CountriesNow: https://flagcdn.com/w320/<iso2-en-minúsculas>.png
+- Google Fonts carga Montserrat desde los archivos CSS del sitio.
+
+Son servicios públicos sin clave para las llamadas realizadas. Pueden limitar
+solicitudes, cambiar respuestas o fallar. No se utiliza una API de tarifas,
+disponibilidad, mapas o autenticación. localStorage conserva datos locales en
+este navegador, no contraseñas ni credenciales.
+
+5. VALIDACIÓN Y DIAGNÓSTICO
+---------------------------
+
+No hay un runner de pruebas ni dependencias de desarrollo configuradas. Durante
+la implementación se validaron desde el navegador:
+
+- Carga del catálogo, filtro por región y búsqueda de país.
+- Detalle, clima/pronóstico y artículos de Wikipedia.
+- Guardado de destino, plan de vuelo y elementos en listas.
+- Creación y persistencia de viaje, presupuesto, notas y actividad.
+- Estimación de distancia aérea y enlaces a artículos de Wikipedia.
+
+Para investigar errores, revisa la consola y la pestaña Red del navegador. Los
+fallos de API y almacenamiento se escriben en consola y producen un mensaje en la
+interfaz. Antes de integrar una nueva API, comprueba CORS, formatos y límites sin
+exponer claves privadas.
+
+6. FUNCIONALIDADES NO IMPLEMENTADAS
+-----------------------------------
+
+La aplicación no consulta tarifas u horarios de aerolíneas, no agenda ni reserva
+vuelos, no sincroniza datos entre dispositivos y no dispone de cuentas. La
+distancia y el tiempo teóricos no equivalen a una ruta u horario de una aerolínea.

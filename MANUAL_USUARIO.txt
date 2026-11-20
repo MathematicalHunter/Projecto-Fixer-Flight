@@ -1,0 +1,115 @@
+MANUAL DEL USUARIO - FIXERFLIGHT
+================================
+
+Las capturas ilustran el uso con datos de ejemplo. Las distancias, los tiempos y
+el clima pueden variar; no representan horarios ni disponibilidad de vuelos.
+
+1. INICIAR LA APLICACIÓN
+------------------------
+
+FixerFlight es una aplicación web. Para que las consultas a las APIs funcionen:
+
+1. Abre la carpeta del proyecto en VS Code.
+2. Inicia un servidor web local, por ejemplo con Live Server, o ejecuta:
+   python -m http.server 8000
+3. Abre http://localhost:8000 en el navegador.
+4. Comprueba que tienes conexión a Internet. No abras los archivos con file://.
+
+La navegación principal permite ir a Inicio, Destinos, Planificador y Guardados.
+Los datos que guardes se conservan en el almacenamiento local de ese navegador.
+
+2. CALCULAR Y GUARDAR UN TRAYECTO
+---------------------------------
+
+1. En Inicio, elige "Ida y vuelta" o "Solo ida".
+2. Escribe el origen y el destino.
+3. Selecciona la fecha de salida. Para ida y vuelta, selecciona también el regreso.
+   La fecha de regreso debe ser igual o posterior a la salida.
+4. Indica clase y cantidad de pasajeros (de 1 a 9).
+5. Pulsa "Calcular trayecto con Open-Meteo". La aplicación consulta las ciudades,
+   calcula una distancia en línea recta y muestra el clima actual del destino.
+6. Agrega notas opcionales y pulsa "Guardar en mi libreta". Luego puedes
+   consultarlas o editarlas desde Guardados.
+
+La distancia y el tiempo a 800 km/h son estimaciones, no una ruta u horario
+real. FixerFlight no consulta tarifas ni disponibilidad, no agenda vuelos y no
+reserva ni vende tiquetes.
+
+Captura: capturas\01-inicio.png
+
+3. EXPLORAR DESTINOS
+--------------------
+
+1. Abre Destinos.
+2. Escribe un país, una capital o una región en el campo de búsqueda.
+   Los nombres entregados por las fuentes pueden aparecer en inglés.
+3. Usa el filtro Región para limitar la lista a África, América, Asia, Europa u
+   Oceanía. La página muestra hasta 100 resultados a la vez; escribe para reducir
+   la lista.
+4. En la tarjeta de un país puedes:
+   - "Ver detalles": consultar capital, región, población, moneda, clima actual,
+     pronóstico de tres días y artículos geográficos cercanos.
+   - "Guardar favorito": agregar o quitar el país de Guardados.
+   - "Planificar viaje": crear un viaje con ese destino en el Planificador.
+   - Elegir una lista y pulsar "Agregar a lista". Primero crea la lista en
+     Guardados si aún no existe.
+
+Las tarjetas muestran el país, su bandera, capital, región y población. El
+detalle presenta clima y artículos geográficos.
+
+Capturas:
+  capturas\02-busqueda-destinos.png
+  capturas\03-detalle-destino.png
+
+4. ORGANIZAR FAVORITOS, PLANES Y LISTAS
+---------------------------------------
+
+1. Abre Guardados para ver destinos favoritos y planes de vuelo guardados.
+2. Para crear una lista, escribe un nombre y pulsa "Crear lista".
+3. En una tarjeta de favorito, selecciona la lista y pulsa "Agregar a lista".
+4. También puedes abrir una lista, escoger un destino o plan guardado y pulsar
+   "Agregar".
+5. Usa "Quitar" para retirar un elemento de una lista; "Eliminar lista" borra la
+   lista completa.
+6. Usa los botones de las tarjetas para retirar un favorito o eliminar un plan
+   guardado. Esto borra solo la nota local.
+
+Captura: capturas\05-guardados.png
+
+5. CREAR UN VIAJE Y ORGANIZAR ACTIVIDADES
+-----------------------------------------
+
+1. Abre Planificador.
+2. Escribe el nombre, origen y destino del viaje. El origen inicial sugerido es
+   Bogotá.
+3. Agrega fechas, cantidad de viajeros, presupuesto estimado en COP y notas.
+   Presupuesto y notas son opcionales.
+4. Pulsa el botón "+" para guardar el viaje. Selecciona un viaje de la lista para
+   consultar sus datos; usa "x" para eliminarlo.
+5. El recorrido consulta la geocodificación gratuita y, si está disponible,
+   muestra una distancia aérea aproximada y un tiempo estimado calculado a
+   800 km/h. Es una orientación en línea recta, no una ruta ni horario confirmado
+   por una aerolínea, y no incluye escalas ni tiempos en aeropuerto.
+6. El botón "Guardar trayecto en mi libreta" copia los datos del viaje a Guardados.
+   Es un apunte local: no busca tarifas, no agenda ni reserva vuelos.
+7. En "Itinerario por días", elige una fecha dentro del viaje, escribe una
+   actividad o lugar y, opcionalmente, agrega notas. Pulsa "Agregar al
+   itinerario". Usa "Quitar actividad" para borrarla.
+
+Captura: capturas\04-planificador.png
+
+6. DATOS, CONEXIÓN Y LIMITACIONES
+---------------------------------
+
+- Los datos se guardan en localStorage del navegador. No se sincronizan con otro
+  dispositivo, no son una cuenta y pueden perderse al limpiar los datos del sitio.
+- Países, clima, geocodificación y artículos dependen de servicios de terceros y
+  de Internet. Si uno no responde, intenta de nuevo más tarde; otras funciones
+  guardadas localmente pueden seguir disponibles.
+- Los datos del clima y la población son información informativa proporcionada
+  por sus fuentes; comprueba los datos importantes antes de viajar.
+- No necesitas registrarte ni iniciar sesión. No introduzcas contraseñas: la app
+  no tiene cuentas y conserva los datos solo en tu navegador.
+- Para empezar de nuevo, borra las claves que comienzan con "fixerflight." desde
+  las herramientas del navegador (Aplicación/Almacenamiento local). Esto elimina
+  los datos guardados solo en ese navegador.

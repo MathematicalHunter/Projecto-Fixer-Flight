@@ -372,12 +372,252 @@ main {
     font-size: 11px;
     font-weight: 700;
     white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.boton-punto:disabled {
-    background-color: #164158;
-    color: rgb(173, 196, 207);
-    border-color: #164158;
+.boton-punto:hover,
+.boton-punto:focus-visible {
+    background-color: #00d2d3;
+    color: #04101e;
+}
+
+.busqueda-destino {
+    margin-top: 24px;
+    padding: 18px;
+    border: 1px solid rgba(0, 210, 211, 0.2);
+    border-radius: 14px;
+    background-color: #041b2d;
+}
+
+.busqueda-destino label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.busqueda-destino-campos,
+.acciones-destino,
+.agregar-lista {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.busqueda-destino input {
+    flex: 1;
+    min-width: 180px;
+    padding: 11px 14px;
+    border: 1px solid #0a4d6d;
+    border-radius: 8px;
+    background: #0c2b3e;
+    color: #ffffff;
+    font: inherit;
+}
+
+.busqueda-destino select,
+.crear-lista input,
+.tarjeta-lista select,
+.agregar-lista select {
+    min-width: 180px;
+    padding: 11px 14px;
+    border: 1px solid #0a4d6d;
+    border-radius: 8px;
+    background: #0c2b3e;
+    color: #ffffff;
+    font: inherit;
+}
+
+.busqueda-destino-campos > label:not(:first-child) {
+    margin: 0;
+}
+
+.estado-api,
+.clima-destino,
+.atribucion-api {
+    color: rgb(166, 195, 207);
+    line-height: 1.6;
+}
+
+.estado-api {
+    min-height: 26px;
+    margin-top: 12px;
+}
+
+.clima-destino {
+    color: #00d2d3 !important;
+    font-weight: 700;
+}
+
+.acciones-destino {
+    width: 100%;
+}
+
+.acciones-destino .boton-punto {
+    white-space: normal;
+}
+
+.tarjeta-pais {
+    min-height: 250px;
+}
+
+.bandera-pais {
+    width: 82px;
+    height: 54px;
+    border: 1px solid rgba(122, 176, 196, 0.2);
+    border-radius: 6px;
+    background: #0c2b3e;
+    object-fit: cover;
+}
+
+.tarjeta-pais h3 {
+    overflow-wrap: anywhere;
+}
+
+.tarjeta-pais .acciones-destino {
+    margin-top: auto;
+}
+
+.agregar-lista {
+    width: 100%;
+}
+
+.agregar-lista select {
+    flex: 1;
+    min-width: 150px;
+}
+
+.subtitulo-guardados {
+    margin-top: 32px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.seccion-listas,
+.seccion-vuelos-guardados {
+    margin-top: 32px;
+}
+
+.crear-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.crear-lista input {
+    flex: 1;
+}
+
+.tarjeta-lista h4 {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.tarjeta-lista select,
+.tarjeta-lista > .boton-punto {
+    width: 100%;
+}
+
+.elementos-lista {
+    display: grid;
+    width: 100%;
+    gap: 8px;
+    padding-left: 18px;
+    color: rgb(166, 195, 207);
+}
+
+.elementos-lista li {
+    padding-left: 4px;
+}
+
+.elementos-lista .boton-punto {
+    margin-left: 8px;
+}
+
+.modal-destino {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    width: min(720px, calc(100vw - 32px));
+    max-height: min(85vh, 760px);
+    overflow: auto;
+    transform: translate(-50%, -50%);
+    padding: 28px;
+    border: 1px solid #0a4d6d;
+    border-radius: 18px;
+    background: #041b2d;
+    color: #ffffff;
+}
+
+.modal-destino::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.modal-destino h2 {
+    margin: 0 42px 12px 0;
+    font-size: 30px;
+}
+
+.modal-destino p {
+    color: rgb(166, 195, 207);
+    line-height: 1.7;
+}
+
+.modal-destino .clima-destino {
+    color: #00d2d3;
+}
+
+.cerrar-modal {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #00d2d3;
+    border-radius: 50%;
+    background: #04101e;
+    color: #00d2d3;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.boton-punto:disabled,
+.crear-lista button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.lugares-cercanos {
+    color: rgb(166, 195, 207);
+    font-size: 13px;
+}
+
+.lista-lugares {
+    padding-left: 18px;
+}
+
+.lista-lugares a,
+.enlace-mapa {
+    color: #00d2d3;
+    line-height: 1.8;
+}
+
+.enlace-mapa {
+    font-size: 13px;
+}
+
+.atribucion-api {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.enlace-vuelos-secundario {
+    margin-left: 10px;
+    background: transparent;
+    color: #00d2d3;
+    text-decoration: none;
 }
 
 .mensaje-vacio {
